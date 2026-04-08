@@ -56,13 +56,18 @@ export default function LoginPage() {
     e.preventDefault()
     setError("")
     setLoading(true)
-    const result = await signIn("credentials", { email, password, redirect: false })
-    if (result?.error) {
+    try {
+      const result = await signIn("credentials", { email, password, redirect: false })
+      if (result?.error) {
+        setError("Email ou senha incorretos. Tente novamente.")
+        setLoading(false)
+        return
+      }
+      router.replace("/dashboard")
+    } catch {
       setError("Email ou senha incorretos. Tente novamente.")
       setLoading(false)
-      return
     }
-    router.replace("/dashboard")
   }
 
   return (

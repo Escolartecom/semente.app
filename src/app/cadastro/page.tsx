@@ -82,12 +82,16 @@ export default function CadastroPage() {
       return
     }
 
-    const result = await signIn("credentials", { email, password, redirect: false })
-    if (result?.error) {
+    try {
+      const result = await signIn("credentials", { email, password, redirect: false })
+      if (result?.error) {
+        router.push("/login")
+        return
+      }
+      router.replace("/dashboard")
+    } catch {
       router.push("/login")
-      return
     }
-    router.replace("/dashboard")
   }
 
   return (
