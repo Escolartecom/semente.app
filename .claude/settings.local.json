@@ -34,7 +34,10 @@
       "Bash(find \"/Users/samueloliveira/Downloads/Semente.app \\(code\\)/src/app/login\" -type f)",
       "Bash(find \"/Users/samueloliveira/Downloads/Semente.app \\(code\\)/src/app/cadastro\" -type f)",
       "Bash(find \"/Users/samueloliveira/Downloads/Semente.app \\(code\\)/src/lib\" -type f -name \"db*\")",
-      "Bash(find \"/Users/samueloliveira/Downloads/Semente.app \\(code\\)\" -name \"schema.prisma\" -o -name \"*.prisma\")"
+      "Bash(find \"/Users/samueloliveira/Downloads/Semente.app \\(code\\)\" -name \"schema.prisma\" -o -name \"*.prisma\")",
+      "Bash(/usr/local/bin/npm run:*)",
+      "Read(//opt/homebrew/bin/**)",
+      "Read(//Users/samueloliveira/.nvm/versions/**)"
     ]
   }
 }
