@@ -7,9 +7,13 @@ const globalForPrisma = globalThis as unknown as {
 
 function createPrismaClient() {
   const url = process.env.DATABASE_URL ?? "file:./prisma/dev.db"
-  // PrismaLibSql accepts the connection URL directly in v7
+  const authToken = process.env.TURSO_AUTH_TOKEN
+
+  // Local SQLite (dev): no authToken needed
+  // Turso (production): requires authToken
+  const adapterConfig = authToken ? { url, authToken } : { url }
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const adapter = new PrismaLibSql({ url } as any)
+  const adapter = new PrismaLibSql(adapterConfig as any)
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   return new PrismaClient({ adapter } as any)
 }

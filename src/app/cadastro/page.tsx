@@ -8,10 +8,10 @@ import { Eye, EyeOff, Loader2, Check } from "lucide-react"
 import { Logo } from "@/components/logo"
 
 const perks = [
-  "1 devocional personalizado por dia",
+  "Receba uma palavra de Deus personalizada para você todos os dias",
   "Versículo, reflexão, aplicação e oração",
   "Salvar favoritos e histórico espiritual",
-  "Gratuito para começar",
+  "Comece gratuitamente agora",
 ]
 
 const S = {
@@ -112,7 +112,7 @@ export default function CadastroPage() {
               marginBottom: 36,
             }}
           >
-            Sua jornada espiritual começa aqui.
+            Deus ainda fala com você — todos os dias
           </h2>
           <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
             {perks.map(perk => (

@@ -290,7 +290,7 @@ export default function DashboardPage() {
         >
           <div>
             <p style={{ fontSize: 13, fontWeight: 500, color: "var(--text)", marginBottom: 4 }}>
-              Plano Grátis — 3 devocionais por mês
+              Plano Grátis — 1 devocional por semana
             </p>
             <p style={{ fontSize: 12, color: "var(--text-2)" }}>
               Devocionais ilimitados por R$29,90/mês. Cancele quando quiser.

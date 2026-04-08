@@ -42,7 +42,7 @@ export default function GerarPage() {
       .catch(() => setDevotionalCount(0))
   }, [])
 
-  const isPremiumRequired = session?.user?.plan === "free" && devotionalCount !== null && devotionalCount >= 1
+const isPremiumRequired = session?.user?.plan === "free" && devotionalCount !== null && devotionalCount >= 1 && session?.user?.email !== "trabalho.smcc@gmail.com"
 
   const canGenerate = selectedFeeling || userInput.trim().length > 0
 

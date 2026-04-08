@@ -7,33 +7,32 @@ import { ArrowRight, Check, ChevronDown } from "lucide-react"
 
 /* ─── Pricing data ──────────────────────────────────────────── */
 const freeFeatures = [
-  "1 devocional gratuito",
+  "Comece gratuitamente agora",
   "Versículo + reflexão + oração",
-  "1 devocional por semana após o primeiro",
+  "Depois, acesso limitado",
 ]
 const premiumFeatures = [
-  "Devocionais ilimitados",
-  "IA com contexto profundo",
-  "Histórico completo e busca",
-  "Salvar favoritos",
-  "Acesso antecipado a novidades",
+  "Uma palavra personalizada todos os dias",
+  "Devocionais ilimitados para qualquer momento",
+  "Salve e releia quando precisar",
+  "Construa seu histórico espiritual",
 ]
 
 const steps = [
   {
     n: "01",
-    title: "Diga como você está",
-    body: "Escolha um sentimento ou escreva o que está vivendo. Sem julgamentos.",
+    title: "Conte como você está",
+    body: "Escolha um sentimento ou escreva o que está vivendo — de forma simples e pessoal.",
   },
   {
     n: "02",
-    title: "Receba sua palavra",
-    body: "A IA gera um devocional completo — versículo, reflexão, aplicação e oração.",
+    title: "Receba uma palavra de Deus",
+    body: "Um devocional completo com versículo, reflexão, aplicação e oração.",
   },
   {
     n: "03",
-    title: "Carregue no seu dia",
-    body: "Salve, releia e construa um histórico espiritual que cresce com você.",
+    title: "Leve para o seu dia",
+    body: "Salve, releia e construa um relacionamento constante com Deus.",
   },
 ]
 
@@ -182,7 +181,7 @@ export default function LandingPage() {
               whiteSpace: "nowrap",
             }}
           >
-            Devocional com IA
+            PALAVRA PARA O SEU MOMENTO
           </p>
 
           {/* Headline */}
@@ -197,9 +196,9 @@ export default function LandingPage() {
               letterSpacing: "-0.01em",
             }}
           >
-            A palavra certa
+            Deus ainda
             <br />
-            <em style={{ fontStyle: "italic", fontWeight: 300 }}>para este momento.</em>
+            <em style={{ fontStyle: "italic", fontWeight: 300 }}>fala com você.</em>
           </h1>
 
           {/* Subtext */}
@@ -213,7 +212,7 @@ export default function LandingPage() {
               fontWeight: 400,
             }}
           >
-            Diga como você está — e receba uma palavra feita exatamente para o seu momento.
+            Receba uma palavra de Deus personalizada para o seu dia, no momento que você precisa.
           </p>
 
           {/* CTAs */}
@@ -241,7 +240,7 @@ export default function LandingPage() {
                   letterSpacing: "0.04em",
                 }}
               >
-                Receber minha palavra de hoje
+                Receber minha palavra agora
                 <ArrowRight size={14} />
               </Link>
               <a
@@ -262,7 +261,7 @@ export default function LandingPage() {
               </a>
             </div>
             <p style={{ fontSize: 11, color: "var(--text-3)", letterSpacing: "0.04em" }}>
-              Leva menos de 1 minuto · Gratuito · Sem compromisso
+              Leva menos de 1 minuto · Gratuito para começar
             </p>
           </div>
         </div>
@@ -347,7 +346,7 @@ export default function LandingPage() {
                 lineHeight: 1.1,
               }}
             >
-              Simples. Profundo. Seu.
+              Simples de usar. Profundo no que entrega.
             </h2>
           </div>
 
@@ -437,12 +436,12 @@ export default function LandingPage() {
                   marginBottom: 20,
                 }}
               >
-                Cada devocional é único — criado para o que você está sentindo agora.
+                Cada devocional é único — feito para o que você está vivendo agora.
               </h2>
               <p style={{ fontSize: 15, color: "var(--text-2)", lineHeight: 1.7 }}>
-                Não é uma devoção genérica retirada de um banco de dados. É um
-                texto construído pela IA especificamente para o seu momento —
-                com profundidade real e cuidado.
+                Não é uma devoção genérica. É uma
+                palavra direcionada para o momento que você está vivendo — 
+                com profundidade, sensibilidade e cuidado.
               </p>
             </div>
 
@@ -774,7 +773,7 @@ export default function LandingPage() {
                 {billing === "monthly" ? "por mês · cancele quando quiser" : "por ano · equivale a R$16/mês"}
               </p>
               <p style={{ fontSize: 13, color: "var(--text-2)", marginBottom: 24, lineHeight: 1.65 }}>
-                Devocionais ilimitados feitos para o seu momento — com direção, paz e clareza sempre que você precisar.
+                Uma palavra de Deus todos os dias, exatamente para o momento que você está vivendo.
               </p>
               <div style={{ display: "flex", flexDirection: "column", gap: 12, marginBottom: 24 }}>
                 {premiumFeatures.map((f) => (
@@ -805,7 +804,7 @@ export default function LandingPage() {
                   letterSpacing: "0.04em",
                 }}
               >
-                Quero acesso ilimitado
+                Começar minha rotina com Deus
               </Link>
             </div>
           </div>
