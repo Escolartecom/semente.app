@@ -27,7 +27,9 @@ export async function POST(req: Request) {
     })
 
     return NextResponse.json({ id: user.id, email: user.email }, { status: 201 })
-  } catch {
-    return NextResponse.json({ error: "Erro interno do servidor" }, { status: 500 })
+  } catch (err) {
+    const msg = err instanceof Error ? err.message : String(err)
+    console.error("[register] erro:", msg)
+    return NextResponse.json({ error: "Erro interno do servidor", detail: msg }, { status: 500 })
   }
 }
