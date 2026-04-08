@@ -1,26 +1,153 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* ── Dark premium palette ─────────────────────── */
+  --bg:        #0B0E0C;
+  --bg-2:      #131A16;
+  --bg-3:      #1B2420;
+  --surface:   #222C28;
+  --border:    #2A3730;
+  --border-2:  #1D2622;
+
+  --text:      #EAE5DD;
+  --text-2:    #7A8C84;
+  --text-3:    #3F5049;
+
+  --gold:      #C8A55A;
+  --gold-h:    #B8953E;
+  --gold-bg:   rgba(200,165,90,0.10);
+
+  /* ── Light / content palette ─────────────────── */
+  --cream:        #F7F3ED;
+  --cream-2:      #EDE8DF;
+  --cream-border: #DDD5C5;
+  --ink:          #1A1714;
+  --ink-2:        #6B6660;
+  --ink-3:        #A09890;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* expose to Tailwind if needed */
+  --color-background: var(--bg);
+  --color-foreground: var(--text);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { overflow-x: hidden; max-width: 100%; }
+img, video, canvas, svg, iframe { max-width: 100%; }
+
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-inter, "Inter", system-ui, sans-serif);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+}
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 99px; }
+
+:focus-visible { outline: 1px solid var(--gold); outline-offset: 3px; border-radius: 3px; }
+
+/* ── Input focus states ─────────────────────────── */
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: var(--gold) !important;
+  box-shadow: 0 0 0 3px rgba(200,165,90,0.12);
+}
+
+/* ── Smooth transitions for interactive elements ── */
+button, a, input, textarea {
+  transition: opacity 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
+}
+
+/* ── Animations ────────────────────────────────── */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+
+.animate-fade-up  { animation: fade-up  0.55s cubic-bezier(0.16,1,0.3,1) both; }
+.animate-fade-in  { animation: fade-in  0.4s ease both; }
+
+.shimmer {
+  background: linear-gradient(90deg, var(--bg-2) 25%, var(--bg-3) 50%, var(--bg-2) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+.shimmer-light {
+  background: linear-gradient(90deg, #ede8df 25%, #e4ddd0 50%, #ede8df 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
+/* ── Sidebar nav hover ─────────────────────────── */
+.sidebar-link:hover {
+  background: var(--bg-3) !important;
+  color: var(--text) !important;
+}
+
+/* ── Card / list item hover ────────────────────── */
+.card-hover {
+  transition: border-color 0.15s ease, background-color 0.15s ease !important;
+}
+.card-hover:hover {
+  border-color: var(--cream-border) !important;
+  background: var(--cream-2) !important;
+  filter: brightness(0.97);
+}
+
+/* ── Responsive utilities ──────────────────────── */
+.responsive-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+@media (max-width: 768px) {
+  .responsive-2col {
+    grid-template-columns: 1fr;
+    gap: 40px;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ── Button hover enhancement ──────────────────── */
+.btn-gold:hover { background: var(--gold-h) !important; }
+.btn-dark:hover { opacity: 0.85; }
+
+/* ── Scroll reveal ──────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1);
 }
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-d1 { transition-delay: 0.08s; }
+.reveal-d2 { transition-delay: 0.16s; }
+.reveal-d3 { transition-delay: 0.24s; }
+
+/* ── Gold button hover ──────────────────────────── */
+a[style*="var(--gold)"]:hover,
+button[style*="var(--gold)"]:hover {
+  filter: brightness(1.08);
+}
+
+/* ── Details / FAQ ─────────────────────────────── */
+details summary::-webkit-details-marker { display: none; }
+details[open] summary .chevron { transform: rotate(180deg); }
+.chevron { transition: transform 0.2s ease; }

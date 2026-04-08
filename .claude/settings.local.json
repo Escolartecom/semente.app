@@ -1,0 +1,40 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(export PATH=\"$PATH:/usr/local/bin:/opt/homebrew/bin\")",
+      "Bash(npx --yes create-next-app@latest . --typescript --tailwind --eslint --app --src-dir --import-alias \"@/*\" --no-git)",
+      "Bash(npx --yes create-next-app@latest . --typescript --tailwind --eslint --app --src-dir --import-alias \"@/*\" --no-git --name semente-app)",
+      "Bash(mkdir -p /tmp/semente-build)",
+      "Read(//tmp/**)",
+      "Bash(npx --yes create-next-app@latest semente --typescript --tailwind --eslint --app --src-dir --import-alias \"@/*\" --no-git)",
+      "Bash(cp -r /tmp/semente-build/semente/. \"/Users/samueloliveira/Downloads/Semente.app \\(code\\)/\")",
+      "Bash(ls \"/Users/samueloliveira/Downloads/Semente.app \\(code\\)/\")",
+      "Bash(export PATH=\"$PATH:/usr/local/bin\")",
+      "Bash(npm install:*)",
+      "Bash(npx prisma:*)",
+      "Bash(node -e \"const {PrismaClient} = require\\(''''@prisma/client''''\\); console.log\\(Object.keys\\(new PrismaClient\\(\\)\\)\\)\")",
+      "Bash(node -e \"const {PrismaClient} = require\\(''@prisma/client''\\); const p = new PrismaClient\\(\\); console.log\\(''OK''\\)\")",
+      "Bash(node -e \":*)",
+      "Bash(npx tsc:*)",
+      "Bash(npm run:*)",
+      "Bash(ls \"/Users/samueloliveira/Downloads/Semente.app \\(code\\)/node_modules/next/dist/server/\")",
+      "Bash(ls \"/Users/samueloliveira/Downloads/Semente.app \\(code\\)/node_modules/next/dist/server/require-hook*\")",
+      "Bash(node node_modules/next/dist/bin/next --version)",
+      "Bash(node node_modules/next/dist/bin/next build)",
+      "Bash(node -e \"const {PrismaLibSql} = require\\(''@prisma/adapter-libsql''\\); console.log\\(typeof PrismaLibSql\\)\")",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(xargs kill:*)",
+      "Bash(ls \"/Users/samueloliveira/Downloads/Semente.app \\(code\\)/node_modules/.bin/next\")",
+      "Bash(chmod +x \"/Users/samueloliveira/Downloads/Semente.app \\(code\\)/start-dev.sh\")",
+      "Bash(find \"/Users/samueloliveira/Downloads/Semente.app \\(code\\)\" -type f -name \"package.json\")",
+      "Bash(find '/Users/samueloliveira/Downloads/Semente.app \\(code\\)/src' -type f -path */api/auth*)",
+      "Bash(find \"/Users/samueloliveira/Downloads/Semente.app \\(code\\)/src\" -type d -name \"auth\")",
+      "Bash(find \"/Users/samueloliveira/Downloads/Semente.app \\(code\\)/src\" -type f \\\\\\( -name \"auth.ts\" -o -name \"authOptions.ts\" \\\\\\))",
+      "Bash(find \"/Users/samueloliveira/Downloads/Semente.app \\(code\\)/src/app\" -type d -maxdepth 1)",
+      "Bash(find \"/Users/samueloliveira/Downloads/Semente.app \\(code\\)/src/app/login\" -type f)",
+      "Bash(find \"/Users/samueloliveira/Downloads/Semente.app \\(code\\)/src/app/cadastro\" -type f)",
+      "Bash(find \"/Users/samueloliveira/Downloads/Semente.app \\(code\\)/src/lib\" -type f -name \"db*\")",
+      "Bash(find \"/Users/samueloliveira/Downloads/Semente.app \\(code\\)\" -name \"schema.prisma\" -o -name \"*.prisma\")"
+    ]
+  }
+}
