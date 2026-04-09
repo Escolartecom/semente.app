@@ -160,7 +160,7 @@ const isPremiumRequired = session?.user?.plan === "free" && devotionalCount !== 
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
             <Link
-              href="/#precos"
+              href="/api/stripe/checkout?plan=monthly"
               style={{
                 display: "flex",
                 alignItems: "center",
@@ -176,7 +176,23 @@ const isPremiumRequired = session?.user?.plan === "free" && devotionalCount !== 
                 textAlign: "center",
               }}
             >
-              Ver planos — a partir de R$29,90/mês
+              Assinar Premium — R$29,90/mês
+            </Link>
+            <Link
+              href="/api/stripe/checkout?plan=yearly"
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                padding: "11px",
+                border: "1px solid var(--border)",
+                color: "var(--text-2)",
+                borderRadius: 8,
+                fontSize: 13,
+                textAlign: "center",
+              }}
+            >
+              Plano Anual — R$197/ano · economia de 45%
             </Link>
             <p style={{ textAlign: "center", fontSize: 11, color: "var(--text-3)" }}>
               Cancele quando quiser · Acesso imediato

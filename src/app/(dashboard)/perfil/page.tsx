@@ -149,8 +149,45 @@ export default function PerfilPage() {
           <p style={{ fontSize: 13, color: "var(--text-2)", marginBottom: 24, lineHeight: 1.6 }}>
             Devocionais ilimitados, histórico completo e acesso total por R$29,90/mês. Cancele quando quiser.
           </p>
-          <Link href="/#precos" style={{ display: "inline-block", padding: "11px 22px", background: "var(--gold)", color: "var(--bg)", borderRadius: 7, fontSize: 13, fontWeight: 600, letterSpacing: "0.04em", cursor: "pointer" }}>
-            Ver planos
+          <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
+            <Link href="/api/stripe/checkout?plan=monthly" style={{ display: "inline-block", padding: "11px 22px", background: "var(--gold)", color: "var(--bg)", borderRadius: 7, fontSize: 13, fontWeight: 600, letterSpacing: "0.04em" }}>
+              Assinar — R$29,90/mês
+            </Link>
+            <Link href="/api/stripe/checkout?plan=yearly" style={{ display: "inline-block", padding: "11px 22px", border: "1px solid var(--border)", color: "var(--text-2)", borderRadius: 7, fontSize: 13 }}>
+              Anual — R$197
+            </Link>
+          </div>
+        </div>
+      )}
+
+      {/* Gerenciar assinatura (só premium) */}
+      {isPremium && (
+        <div
+          style={{
+            background: "var(--bg)",
+            border: "1px solid rgba(200,165,90,0.25)",
+            borderRadius: 10,
+            padding: "28px 32px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            gap: 16,
+            flexWrap: "wrap",
+          }}
+        >
+          <div>
+            <p style={{ fontSize: 10, fontWeight: 600, letterSpacing: "0.18em", color: "var(--gold)", textTransform: "uppercase", marginBottom: 6 }}>
+              Assinatura
+            </p>
+            <p style={{ fontSize: 13, color: "var(--text-2)" }}>
+              Gerencie, cancele ou troque seu plano.
+            </p>
+          </div>
+          <Link
+            href="/api/stripe/portal"
+            style={{ display: "inline-block", padding: "10px 20px", border: "1px solid var(--border)", color: "var(--text)", borderRadius: 7, fontSize: 13, fontWeight: 500, whiteSpace: "nowrap" }}
+          >
+            Gerenciar assinatura
           </Link>
         </div>
       )}

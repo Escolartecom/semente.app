@@ -53,7 +53,16 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
     async session({ session, token }) {
       if (token) {
         session.user.id = token.id as string
-        session.user.plan = token.plan as string
+        // Busca plano sempre fresco do banco para refletir upgrades imediatamente
+        try {
+          const dbUser = await db.user.findUnique({
+            where: { id: token.id as string },
+            select: { plan: true },
+          })
+          session.user.plan = dbUser?.plan ?? (token.plan as string) ?? "free"
+        } catch {
+          session.user.plan = (token.plan as string) ?? "free"
+        }
       }
       return session
     },

@@ -2,6 +2,7 @@
 
 import { useSession } from "next-auth/react"
 import { useEffect, useState } from "react"
+import { useSearchParams, useRouter } from "next/navigation"
 import Link from "next/link"
 import { ArrowRight, BookMarked, Sparkles } from "lucide-react"
 import { formatDate } from "@/lib/utils"
@@ -28,9 +29,21 @@ const S = {
 }
 
 export default function DashboardPage() {
-  const { data: session } = useSession()
+  const { data: session, update } = useSession()
+  const searchParams = useSearchParams()
+  const router = useRouter()
   const [devotionals, setDevotionals] = useState<Devotional[]>([])
   const [loading, setLoading] = useState(true)
+  const [showUpgraded, setShowUpgraded] = useState(false)
+
+  // Detecta retorno do Stripe após pagamento
+  useEffect(() => {
+    if (searchParams.get("upgraded") === "true") {
+      setShowUpgraded(true)
+      update() // atualiza a sessão para refletir novo plano
+      router.replace("/dashboard")
+    }
+  }, [searchParams, update, router])
 
   const greeting = greetings[Math.floor(Math.random() * greetings.length)]
   const firstName = session?.user?.name?.split(" ")[0] || "você"
@@ -53,6 +66,31 @@ export default function DashboardPage() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 40 }}>
+
+      {/* ── Banner de upgrade ───────────────────────────── */}
+      {showUpgraded && (
+        <div
+          style={{
+            background: "linear-gradient(135deg, rgba(200,165,90,0.12), rgba(200,165,90,0.04))",
+            border: "1px solid rgba(200,165,90,0.35)",
+            borderRadius: 10,
+            padding: "20px 24px",
+            display: "flex",
+            alignItems: "center",
+            gap: 14,
+          }}
+        >
+          <span style={{ fontSize: 22 }}>🌱</span>
+          <div>
+            <p style={{ fontSize: 14, fontWeight: 600, color: "var(--gold)", marginBottom: 2 }}>
+              Bem-vindo ao Premium!
+            </p>
+            <p style={{ fontSize: 13, color: "var(--text-2)" }}>
+              Seus devocionais agora são ilimitados. Que sua jornada seja abençoada.
+            </p>
+          </div>
+        </div>
+      )}
 
       {/* ── Header ──────────────────────────────────────── */}
       <div style={{ paddingTop: 8 }}>
