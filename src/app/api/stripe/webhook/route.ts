@@ -26,7 +26,7 @@ export async function POST(req: Request) {
     switch (event.type) {
       // Pagamento confirmado → ativa plano premium
       case "checkout.session.completed": {
-        const s = event.data.object as Stripe.CheckoutSession
+        const s = event.data.object as Stripe.Checkout.Session
         if (s.mode === "subscription" && s.customer) {
           await db.user.updateMany({
             where: { stripeCustomerId: s.customer as string },

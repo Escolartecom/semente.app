@@ -1,5 +1,13 @@
 import OpenAI from "openai"
 
+let _openai: OpenAI | null = null
+function getOpenAI() {
+  if (!_openai) {
+    _openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY })
+  }
+  return _openai
+}
+
 export interface DevotionalInput {
   feeling?: string
   userInput?: string
@@ -13,10 +21,6 @@ export interface DevotionalOutput {
   practicalApp: string
   prayer: string
 }
-
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-})
 
 export async function generateDevotional(
   input: DevotionalInput
@@ -72,7 +76,7 @@ Retorne exatamente neste formato JSON:
 }
 `
 
-  const response = await openai.chat.completions.create({
+  const response = await getOpenAI().chat.completions.create({
   model: "gpt-4.1-mini",
   temperature: 1.3,
   response_format: {
