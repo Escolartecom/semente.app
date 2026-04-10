@@ -96,7 +96,7 @@ function ResultadoInner() {
                 className="animate-spin"
               />
               <p style={{ ...S.serif, fontSize: 22, color: "var(--text-2)", fontWeight: 300, lineHeight: 1.5 }}>
-                Deus está preparando<br />uma palavra só para você...
+                Deus está preparando<br />uma palavra para você...
               </p>
             </div>
           )}
