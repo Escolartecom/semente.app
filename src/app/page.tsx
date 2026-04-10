@@ -39,19 +39,40 @@ const steps = [
 
 const testimonials = [
   {
-    quote: "Abro todo dia antes de começar. É o único momento que parece meu de verdade.",
-    name: "Camila R.",
-    role: "Designer, SP",
+    quote: "O versículo já falou comigo logo de cara… mas a reflexão foi o que mais me pegou. Parecia que alguém tinha entendido exatamente o que eu estava sentindo. Depois da oração, senti uma paz absurda.",
+    name: "Mariana S.",
+    city: "São Paulo, SP",
+    photo: "/testimonials/mariana.jpg",
   },
   {
-    quote: "Não é mais um app cristão genérico. Cada devocional parece escrito pra mim.",
-    name: "Lucas M.",
-    role: "Empreendedor, MG",
-  },
-  {
-    quote: "A oração do dia de ontem me fez chorar. Que produto incrível.",
+    quote: "Eu estava muito ansiosa… a reflexão me fez parar e a aplicação foi algo simples que consegui fazer no dia. Já senti diferença.",
     name: "Ana P.",
-    role: "Professora, RJ",
+    city: "Recife, PE",
+    photo: "/testimonials/ana.jpg",
+  },
+  {
+    quote: "Quando cheguei na oração, não sei explicar… foi como se eu tivesse desacelerado completamente. Me ajudou muito.",
+    name: "Bruno L.",
+    city: "Rio de Janeiro, RJ",
+    photo: "/testimonials/bruno.jpg",
+  },
+  {
+    quote: "É muito completo. Tem o versículo, a reflexão que aprofunda e a oração fecha tudo de um jeito muito especial. Me senti muito mais conectada.",
+    name: "Juliana M.",
+    city: "Curitiba, PR",
+    photo: "/testimonials/juliana.jpg",
+  },
+  {
+    quote: "O que mais gostei foi a parte da aplicação. Não ficou só na reflexão… me deu algo simples pra viver no dia. Isso fez muita diferença pra mim.",
+    name: "Lucas R.",
+    city: "Belo Horizonte, MG",
+    photo: "/testimonials/lucas.jpg",
+  },
+  {
+    quote: "Virou um hábito. Eu abro, leio tudo — principalmente a aplicação — e levo aquilo pro dia. É simples, mas muda como você pensa.",
+    name: "Fernando A.",
+    city: "Porto Alegre, RS",
+    photo: "/testimonials/fernando.jpg",
   },
 ]
 
@@ -234,7 +255,7 @@ export default function LandingPage() {
           >
             <div style={{ display: "flex", alignItems: "center", flexWrap: "wrap", justifyContent: "center", gap: 12 }}>
               <Link
-                href="/cadastro"
+                href="/quiz"
                 style={{
                   display: "inline-flex",
                   alignItems: "center",
@@ -556,59 +577,57 @@ export default function LandingPage() {
       </section>
 
       {/* ── TESTIMONIALS ──────────────────────────────────── */}
-      <section style={{ padding: "120px 24px" }}>
+      <section style={{ padding: "clamp(72px, 10vw, 120px) clamp(16px, 3vw, 24px)" }}>
         <div style={S.container}>
-          <p
-            style={{
-              fontSize: 11,
-              letterSpacing: "0.22em",
-              color: "var(--gold)",
-              textTransform: "uppercase",
-              marginBottom: 16,
-              fontWeight: 500,
-              textAlign: "center",
-            }}
-          >
-            O que dizem
-          </p>
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-              gap: 24,
-              marginTop: 48,
-            }}
-          >
+          <div style={{ textAlign: "center", marginBottom: 56 }}>
+            <p style={{ fontSize: 11, letterSpacing: "0.22em", color: "var(--gold)", textTransform: "uppercase", marginBottom: 16, fontWeight: 500 }}>
+              O que dizem
+            </p>
+            <h2 style={{ ...S.serif, fontSize: "clamp(26px, 4vw, 40px)", fontWeight: 300, color: "var(--text)", lineHeight: 1.15 }}>
+              Palavras que tocaram de verdade.
+            </h2>
+          </div>
+
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 20 }}>
             {testimonials.map((t, i) => (
               <div
                 key={i}
-                className={`reveal reveal-d${i}`}
+                className={`reveal reveal-d${i % 3}`}
                 style={{
                   background: "var(--bg-2)",
                   border: "1px solid var(--border-2)",
-                  borderRadius: 10,
+                  borderRadius: 12,
                   padding: "clamp(24px, 3vw, 32px)",
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: 20,
                 }}
               >
-                <p
-                  style={{
-                    ...S.serif,
-                    fontSize: 17,
-                    fontStyle: "italic",
-                    color: "var(--text)",
-                    lineHeight: 1.6,
-                    marginBottom: 24,
-                  }}
-                >
+                {/* Stars */}
+                <div style={{ display: "flex", gap: 3 }}>
+                  {[1,2,3,4,5].map(s => (
+                    <span key={s} style={{ color: "var(--gold)", fontSize: 13 }}>★</span>
+                  ))}
+                </div>
+
+                <p style={{ ...S.serif, fontSize: 16, fontStyle: "italic", color: "var(--text)", lineHeight: 1.7, flex: 1 }}>
                   "{t.quote}"
                 </p>
-                <div>
-                  <p style={{ fontSize: 13, fontWeight: 500, color: "var(--text)" }}>
-                    {t.name}
-                  </p>
-                  <p style={{ fontSize: 12, color: "var(--text-3)", marginTop: 2 }}>
-                    {t.role}
-                  </p>
+
+                <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+                  <img
+                    src={t.photo}
+                    alt={t.name}
+                    style={{ width: 40, height: 40, borderRadius: "50%", objectFit: "cover", flexShrink: 0 }}
+                  />
+                  <div>
+                    <p style={{ fontSize: 13, fontWeight: 500, color: "var(--text)", marginBottom: 1 }}>
+                      {t.name}
+                    </p>
+                    <p style={{ fontSize: 11, color: "var(--text-3)" }}>
+                      {t.city}
+                    </p>
+                  </div>
                 </div>
               </div>
             ))}
@@ -847,7 +866,7 @@ export default function LandingPage() {
             Que palavra você precisa ouvir hoje?
           </h2>
           <Link
-            href="/cadastro"
+            href="/quiz"
             style={{
               display: "inline-flex",
               alignItems: "center",
@@ -861,7 +880,7 @@ export default function LandingPage() {
               letterSpacing: "0.04em",
             }}
           >
-            Criar minha conta grátis
+            Quero receber minha palavra agora
             <ArrowRight size={15} />
           </Link>
         </div>
