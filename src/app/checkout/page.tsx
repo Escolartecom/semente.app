@@ -127,16 +127,21 @@ function CheckoutInner() {
               </div>
 
               <div style={{ flex: 1 }}>
-                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 6 }}>
-                  <p style={{ fontSize: 13, fontWeight: 600, color: "var(--text)" }}>
-                    ✦ Adicionar: Orações Guiadas
-                  </p>
-                  <p style={{ fontSize: 14, fontWeight: 700, color: orderBump ? "var(--gold)" : "var(--text-2)" }}>
+                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 4 }}>
+                  <div>
+                    <p style={{ fontSize: 13, fontWeight: 600, color: "var(--text)" }}>
+                      ✦ Adicionar: Clamor
+                    </p>
+                    <p style={{ fontSize: 11, color: "var(--gold)", fontStyle: "italic", marginTop: 1 }}>
+                      orações para quando as palavras faltam
+                    </p>
+                  </div>
+                  <p style={{ fontSize: 14, fontWeight: 700, color: orderBump ? "var(--gold)" : "var(--text-2)", flexShrink: 0, marginLeft: 12 }}>
                     +R$27
                   </p>
                 </div>
-                <p style={{ fontSize: 12, color: "var(--text-3)", lineHeight: 1.65, marginBottom: 10 }}>
-                  Biblioteca de orações personalizadas para os momentos mais difíceis da vida — ansiedade, luto, relacionamentos, propósito e muito mais. Uma cobrança única, acesso para sempre.
+                <p style={{ fontSize: 12, color: "var(--text-3)", lineHeight: 1.65, marginBottom: 10, marginTop: 10 }}>
+                  Tem horas que você está no fundo do poço e não sabe nem como começar a falar com Deus. O Clamor é uma coleção de orações para esses momentos — ansiedade, luto, medo, silêncio, dúvida. Palavras para quando as suas acabam. Uma cobrança única, acesso para sempre.
                 </p>
                 <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
                   {["Ansiedade", "Luto", "Família", "Propósito", "Cura", "Perdão"].map(tag => (
