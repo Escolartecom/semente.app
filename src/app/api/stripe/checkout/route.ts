@@ -6,7 +6,8 @@ import { db } from "@/lib/db"
 export async function GET(req: Request) {
   const session = await auth()
   if (!session?.user?.id) {
-    return NextResponse.redirect(new URL("/login", req.url))
+    const dest = new URL(req.url).pathname + new URL(req.url).search
+    return NextResponse.redirect(new URL(`/login?next=${encodeURIComponent(dest)}`, req.url))
   }
 
   const { searchParams } = new URL(req.url)

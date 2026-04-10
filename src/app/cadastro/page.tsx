@@ -303,7 +303,7 @@ function CadastroPageInner() {
 
           <p style={{ textAlign: "center", fontSize: 13, color: "var(--text-3)" }}>
             Já tem conta?{" "}
-            <Link href="/login" style={{ color: "var(--gold)", fontWeight: 500 }}>
+            <Link href={next !== "/dashboard" ? `/login?next=${encodeURIComponent(next)}` : "/login"} style={{ color: "var(--gold)", fontWeight: 500 }}>
               Entrar
             </Link>
           </p>

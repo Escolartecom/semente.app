@@ -255,7 +255,7 @@ function LoginPageInner() {
 
           <p style={{ textAlign: "center", fontSize: 13, color: "var(--text-3)" }}>
             Não tem conta?{" "}
-            <Link href="/cadastro" style={{ color: "var(--gold)", fontWeight: 500 }}>
+            <Link href={next !== "/dashboard" ? `/cadastro?next=${encodeURIComponent(next)}` : "/cadastro"} style={{ color: "var(--gold)", fontWeight: 500 }}>
               Criar conta grátis
             </Link>
           </p>
