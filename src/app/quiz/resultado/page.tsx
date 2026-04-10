@@ -33,7 +33,7 @@ function ResultadoInner() {
   const [submitting, setSubmitting]         = useState(false)
   const [emailError, setEmailError]         = useState("")
 
-  const checkoutHref = `/cadastro?next=${encodeURIComponent("/api/stripe/checkout?plan=monthly")}`
+  const checkoutHref = `/cadastro?next=${encodeURIComponent("/checkout?plan=monthly")}`
 
   useEffect(() => {
     fetch("/api/quiz/generate", {

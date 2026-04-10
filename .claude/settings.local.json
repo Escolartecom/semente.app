@@ -37,7 +37,9 @@
       "Bash(find \"/Users/samueloliveira/Downloads/Semente.app \\(code\\)\" -name \"schema.prisma\" -o -name \"*.prisma\")",
       "Bash(/usr/local/bin/npm run:*)",
       "Read(//opt/homebrew/bin/**)",
-      "Read(//Users/samueloliveira/.nvm/versions/**)"
+      "Read(//Users/samueloliveira/.nvm/versions/**)",
+      "Read(//usr/local/bin/**)",
+      "Bash(ls ~/.nvm/versions/node/*/bin/node)"
     ]
   }
 }
