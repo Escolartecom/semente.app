@@ -214,17 +214,17 @@ function ResultadoInner() {
                     flexDirection: "column",
                     alignItems: "center",
                     justifyContent: "center",
-                    width: 120,
-                    height: 120,
+                    width: 140,
+                    height: 140,
                     borderRadius: "50%",
-                    border: "1px solid rgba(200,165,90,0.35)",
-                    background: "radial-gradient(circle, rgba(200,165,90,0.10) 0%, transparent 70%)",
+                    border: "2px solid rgba(200,165,90,0.7)",
+                    background: "radial-gradient(circle, rgba(200,165,90,0.22) 0%, rgba(200,165,90,0.06) 60%, transparent 100%)",
                     marginBottom: 24,
-                    boxShadow: "0 0 40px rgba(200,165,90,0.12), inset 0 0 30px rgba(200,165,90,0.05)",
-                    animation: "glow-breathe 4s ease-in-out infinite",
+                    boxShadow: "0 0 60px rgba(200,165,90,0.35), 0 0 120px rgba(200,165,90,0.15), inset 0 0 40px rgba(200,165,90,0.12)",
+                    animation: "glow-breathe 3.5s ease-in-out infinite",
                   }}>
-                    <span style={{ ...S.serif, fontSize: 48, fontWeight: 300, color: "var(--gold)", lineHeight: 1 }}>60</span>
-                    <span style={{ fontSize: 9, letterSpacing: "0.18em", color: "var(--gold)", textTransform: "uppercase", marginTop: 2, opacity: 0.8 }}>dias</span>
+                    <span style={{ ...S.serif, fontSize: 56, fontWeight: 300, color: "var(--gold)", lineHeight: 1, textShadow: "0 0 20px rgba(200,165,90,0.8)" }}>60</span>
+                    <span style={{ fontSize: 10, letterSpacing: "0.22em", color: "var(--gold)", textTransform: "uppercase", marginTop: 3, fontWeight: 500 }}>dias</span>
                   </div>
 
                   <p style={{
@@ -286,15 +286,6 @@ function ResultadoInner() {
                     ))}
                   </div>
 
-                  {/* Preço */}
-                  <div style={{ textAlign: "center", marginBottom: 20 }}>
-                    <p style={{ fontSize: 12, color: "var(--text-3)", marginBottom: 4 }}>por apenas</p>
-                    <p style={{ ...S.serif, fontSize: 40, fontWeight: 300, color: "var(--gold)", lineHeight: 1 }}>
-                      R$29,90
-                    </p>
-                    <p style={{ fontSize: 12, color: "var(--text-3)", marginTop: 4 }}>por mês · menos de R$1 por dia</p>
-                  </div>
-
                   <Link
                     href={checkoutHref}
                     style={{
@@ -302,18 +293,18 @@ function ResultadoInner() {
                       alignItems: "center",
                       justifyContent: "center",
                       gap: 8,
-                      padding: "17px",
+                      padding: "18px",
                       background: "var(--gold)",
                       color: "var(--bg)",
                       borderRadius: 10,
-                      fontSize: 15,
+                      fontSize: 16,
                       fontWeight: 700,
-                      letterSpacing: "0.04em",
+                      letterSpacing: "0.03em",
                       marginBottom: 12,
-                      boxShadow: "0 4px 24px rgba(200,165,90,0.30)",
+                      boxShadow: "0 4px 32px rgba(200,165,90,0.40)",
                     }}
                   >
-                    Quero começar meu desafio de 60 dias
+                    Quero aceitar o desafio
                     <ArrowRight size={15} />
                   </Link>
                   <p style={{ textAlign: "center", fontSize: 11, color: "var(--text-3)" }}>

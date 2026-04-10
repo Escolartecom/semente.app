@@ -259,7 +259,7 @@ export default function LandingPage() {
               whiteSpace: "nowrap",
             }}
           >
-            PALAVRA PARA O SEU MOMENTO
+            DESAFIO 60 DIAS COM DEUS
           </motion.p>
 
           {/* Headline */}
@@ -269,7 +269,7 @@ export default function LandingPage() {
             transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
             style={{
               ...S.serif,
-              fontSize: "clamp(52px, 9vw, 96px)",
+              fontSize: "clamp(48px, 8.5vw, 92px)",
               fontWeight: 300,
               lineHeight: 1.05,
               color: "var(--text)",
@@ -291,12 +291,12 @@ export default function LandingPage() {
               fontSize: "clamp(15px, 2vw, 17px)",
               color: "var(--text-2)",
               lineHeight: 1.75,
-              maxWidth: 460,
+              maxWidth: 480,
               margin: "0 auto 44px",
               fontWeight: 400,
             }}
           >
-            Receba uma palavra de Deus personalizada para o seu dia, no momento que você precisa.
+            60 dias recebendo uma palavra de Deus feita para o seu momento — personalizada, profunda, todo dia.
           </motion.p>
 
           {/* CTAs */}
@@ -322,7 +322,7 @@ export default function LandingPage() {
                   letterSpacing: "0.04em",
                 }}
               >
-                Receber minha palavra agora
+                Quero aceitar o desafio
                 <ArrowRight size={14} />
               </Link>
               <a
@@ -907,7 +907,7 @@ export default function LandingPage() {
               fontWeight: 500,
             }}
           >
-            Comece agora
+            ✦ Desafio 60 Dias com Deus ✦
           </p>
           <h2
             style={{
@@ -916,11 +916,14 @@ export default function LandingPage() {
               fontWeight: 300,
               color: "var(--text)",
               lineHeight: 1.1,
-              marginBottom: 40,
+              marginBottom: 20,
             }}
           >
-            Que palavra você precisa ouvir hoje?
+            Pronto para os seus 60 dias com Deus?
           </h2>
+          <p style={{ fontSize: 16, color: "var(--text-3)", lineHeight: 1.75, marginBottom: 40 }}>
+            Descubra sua primeira palavra agora — leva menos de 2 minutos.
+          </p>
           <Link
             href="/quiz"
             style={{
@@ -936,7 +939,7 @@ export default function LandingPage() {
               letterSpacing: "0.04em",
             }}
           >
-            Quero receber minha palavra agora
+            Quero aceitar o desafio de 60 dias
             <ArrowRight size={15} />
           </Link>
         </div>
