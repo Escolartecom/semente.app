@@ -416,7 +416,7 @@ function ResultadoInner() {
 
                       <div style={{ display: "flex", flexDirection: "column", gap: 12, marginBottom: 28 }}>
                         {[
-                          { icon: "🌱", text: "Uma palavra personalizada para o seu momento, todo dia" },
+                          { icon: "🌱", text: "Uma palavra de Deus para o seu momento, todo dia" },
                           { icon: "📖", text: "Versículo, reflexão, aplicação prática e oração" },
                           { icon: "📅", text: "Progresso dia a dia — Fase Semente, Raízes e Fruto" },
                           { icon: "🔒", text: "Histórico completo e acesso a qualquer hora" },
