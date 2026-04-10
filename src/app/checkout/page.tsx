@@ -138,7 +138,7 @@ function CheckoutInner() {
                   </div>
                   <div style={{ flexShrink: 0, marginLeft: 12, textAlign: "right" }}>
                     <p style={{ fontSize: 14, fontWeight: 700, color: orderBump ? "var(--gold)" : "var(--text-2)" }}>+R$27</p>
-                    <p style={{ fontSize: 10, color: "var(--text-3)", letterSpacing: "0.04em", marginTop: 2, whiteSpace: "nowrap" }}>pagamento único</p>
+                    <p style={{ fontSize: 10, color: "var(--gold)", letterSpacing: "0.04em", marginTop: 2, whiteSpace: "nowrap", fontWeight: 600 }}>pagamento único</p>
                   </div>
                 </div>
                 <p style={{ fontSize: 12, color: "var(--text-3)", lineHeight: 1.65, marginBottom: 10, marginTop: 10 }}>
