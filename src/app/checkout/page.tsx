@@ -158,6 +158,28 @@ function CheckoutInner() {
             </div>
           </button>
 
+          {/* Por que esse valor */}
+          <div style={{
+            background: "rgba(200,165,90,0.05)",
+            border: "1px solid rgba(200,165,90,0.15)",
+            borderRadius: 10,
+            padding: "16px 20px",
+            marginBottom: 20,
+            display: "flex",
+            gap: 14,
+            alignItems: "flex-start",
+          }}>
+            <span style={{ fontSize: 18, flexShrink: 0, marginTop: 1 }}>🌿</span>
+            <div>
+              <p style={{ fontSize: 12, fontWeight: 600, color: "var(--gold)", marginBottom: 4 }}>
+                Por que esse valor?
+              </p>
+              <p style={{ fontSize: 12, color: "var(--text-3)", lineHeight: 1.7 }}>
+                O Semente é sustentado por quem acredita na missão. Uma parte de cada assinatura é destinada a obras e ministérios — para que a Palavra continue chegando onde mais precisa. O restante mantém a plataforma ativa, gratuita para quem não pode pagar e em constante crescimento.
+              </p>
+            </div>
+          </div>
+
           {/* Total */}
           <div style={{
             display: "flex", alignItems: "center", justifyContent: "space-between",
