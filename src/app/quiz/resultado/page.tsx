@@ -35,7 +35,7 @@ function ResultadoInner() {
   const [submitting, setSubmitting]         = useState(false)
   const [emailError, setEmailError]         = useState("")
 
-  const checkoutHref = `/cadastro?next=${encodeURIComponent("/checkout?plan=monthly")}`
+  const checkoutHref = `/checkout?plan=monthly`
 
   useEffect(() => {
     fetch("/api/quiz/generate", {
@@ -96,7 +96,7 @@ function ResultadoInner() {
                 className="animate-spin"
               />
               <p style={{ ...S.serif, fontSize: 22, color: "var(--text-2)", fontWeight: 300, lineHeight: 1.5 }}>
-                Preparando a palavra<br />do seu momento...
+                Deus está preparando<br />uma palavra só para você...
               </p>
             </div>
           )}
