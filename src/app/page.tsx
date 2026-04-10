@@ -531,7 +531,7 @@ export default function LandingPage() {
                 transition={{ duration: 0.7, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
                 style={{ fontSize: 15, color: "var(--text-2)", lineHeight: 1.7 }}
               >
-                Não é uma devoção genérica. É uma palavra gerada para o que você está carregando hoje — com profundidade, sensibilidade e cuidado. Diferente todos os dias. Sempre sobre você.
+                Não é uma devoção genérica. É uma palavra escolhida para o que você está carregando hoje — com profundidade, sensibilidade e cuidado. Diferente todos os dias. Sempre sobre você.
               </motion.p>
             </div>
 
