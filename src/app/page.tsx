@@ -308,7 +308,7 @@ export default function LandingPage() {
           >
             <div style={{ display: "flex", alignItems: "center", flexWrap: "wrap", justifyContent: "center", gap: 12 }}>
               <Link
-                href="/quiz"
+                href="/quiz/presell"
                 style={{
                   display: "inline-flex",
                   alignItems: "center",
@@ -1017,7 +1017,7 @@ export default function LandingPage() {
             Começa com uma pergunta simples. Termina com uma transformação que você não vai conseguir explicar pra ninguém — só sentir.
           </p>
           <Link
-            href="/quiz"
+            href="/quiz/presell"
             style={{
               display: "inline-flex",
               alignItems: "center",

@@ -381,7 +381,7 @@ export default function DashboardPage() {
             </p>
           </div>
           <Link
-            href="/quiz"
+            href="/quiz/presell"
             style={{
               flexShrink: 0,
               display: "inline-block",
