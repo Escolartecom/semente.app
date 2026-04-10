@@ -3,8 +3,24 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import { useSession } from "next-auth/react"
+import { motion } from "framer-motion"
 import { Logo } from "@/components/logo"
 import { ArrowRight, Check, ChevronDown } from "lucide-react"
+
+const PARTICLES = [
+  { x: 12, y: 25, size: 2.5, dur: 5.0, delay: 0.0 },
+  { x: 28, y: 60, size: 1.8, dur: 6.5, delay: 1.2 },
+  { x: 45, y: 35, size: 3.0, dur: 4.5, delay: 0.6 },
+  { x: 62, y: 70, size: 2.0, dur: 7.0, delay: 2.1 },
+  { x: 75, y: 20, size: 2.8, dur: 5.5, delay: 0.9 },
+  { x: 88, y: 50, size: 1.5, dur: 6.0, delay: 1.8 },
+  { x: 20, y: 80, size: 2.2, dur: 4.8, delay: 3.0 },
+  { x: 55, y: 15, size: 1.6, dur: 5.8, delay: 2.4 },
+  { x: 38, y: 88, size: 2.6, dur: 6.2, delay: 0.3 },
+  { x: 82, y: 78, size: 2.0, dur: 4.2, delay: 1.5 },
+  { x: 6,  y: 45, size: 1.8, dur: 7.2, delay: 2.8 },
+  { x: 93, y: 30, size: 2.4, dur: 5.2, delay: 0.7 },
+]
 
 /* ─── Pricing data ──────────────────────────────────────────── */
 const freeFeatures = [
@@ -185,21 +201,54 @@ export default function LandingPage() {
           overflow: "hidden",
         }}
       >
-        {/* Background texture */}
-        <div
-          aria-hidden
-          style={{
+        {/* Halo central */}
+        <div aria-hidden style={{
+          position: "absolute",
+          top: "38%", left: "50%",
+          transform: "translate(-50%,-50%)",
+          width: "min(700px, 90vw)",
+          height: "min(700px, 90vw)",
+          borderRadius: "50%",
+          background: "radial-gradient(circle, rgba(200,165,90,0.13) 0%, transparent 70%)",
+          animation: "glow-breathe 6s ease-in-out infinite",
+          pointerEvents: "none",
+        }} />
+
+        {/* Outer halo */}
+        <div aria-hidden style={{
+          position: "absolute",
+          top: "38%", left: "50%",
+          transform: "translate(-50%,-50%)",
+          width: "min(1000px, 120vw)",
+          height: "min(1000px, 120vw)",
+          borderRadius: "50%",
+          background: "radial-gradient(circle, rgba(200,165,90,0.05) 0%, transparent 65%)",
+          animation: "halo-pulse 9s ease-in-out infinite",
+          pointerEvents: "none",
+        }} />
+
+        {/* Particles */}
+        {PARTICLES.map((p, i) => (
+          <div key={i} aria-hidden style={{
             position: "absolute",
-            inset: 0,
-            background:
-              "radial-gradient(ellipse 60% 50% at 50% 60%, rgba(200,165,90,0.06) 0%, transparent 70%)",
+            left: `${p.x}%`,
+            top: `${p.y}%`,
+            width: p.size,
+            height: p.size,
+            borderRadius: "50%",
+            background: "rgba(200,165,90,0.9)",
+            boxShadow: `0 0 ${p.size * 3}px rgba(200,165,90,0.6)`,
+            animation: `particle-rise ${p.dur}s ease-in-out infinite ${p.delay}s`,
             pointerEvents: "none",
-          }}
-        />
+          }} />
+        ))}
 
         <div style={{ position: "relative", maxWidth: 720, margin: "0 auto" }}>
           {/* Eyebrow */}
-          <p
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.1 }}
             style={{
               fontSize: 11,
               letterSpacing: "0.20em",
@@ -211,10 +260,13 @@ export default function LandingPage() {
             }}
           >
             PALAVRA PARA O SEU MOMENTO
-          </p>
+          </motion.p>
 
           {/* Headline */}
-          <h1
+          <motion.h1
+            initial={{ opacity: 0, y: 28 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
             style={{
               ...S.serif,
               fontSize: "clamp(52px, 9vw, 96px)",
@@ -228,10 +280,13 @@ export default function LandingPage() {
             Deus ainda
             <br />
             <em style={{ fontStyle: "italic", fontWeight: 300 }}>fala com você.</em>
-          </h1>
+          </motion.h1>
 
           {/* Subtext */}
-          <p
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.65, ease: [0.16, 1, 0.3, 1] }}
             style={{
               fontSize: "clamp(15px, 2vw, 17px)",
               color: "var(--text-2)",
@@ -242,16 +297,14 @@ export default function LandingPage() {
             }}
           >
             Receba uma palavra de Deus personalizada para o seu dia, no momento que você precisa.
-          </p>
+          </motion.p>
 
           {/* CTAs */}
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              gap: 12,
-            }}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.95, ease: [0.16, 1, 0.3, 1] }}
+            style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 12 }}
           >
             <div style={{ display: "flex", alignItems: "center", flexWrap: "wrap", justifyContent: "center", gap: 12 }}>
               <Link
@@ -292,7 +345,7 @@ export default function LandingPage() {
             <p style={{ fontSize: 11, color: "var(--text-3)", letterSpacing: "0.04em" }}>
               Leva menos de 1 minuto · Gratuito para começar
             </p>
-          </div>
+          </motion.div>
         </div>
 
         {/* Scroll hint */}
@@ -590,9 +643,12 @@ export default function LandingPage() {
 
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 20 }}>
             {testimonials.map((t, i) => (
-              <div
+              <motion.div
                 key={i}
-                className={`reveal reveal-d${i % 3}`}
+                initial={{ opacity: 0, y: 32 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.65, delay: (i % 3) * 0.12, ease: [0.16, 1, 0.3, 1] }}
                 style={{
                   background: "var(--bg-2)",
                   border: "1px solid var(--border-2)",
@@ -629,7 +685,7 @@ export default function LandingPage() {
                     </p>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>

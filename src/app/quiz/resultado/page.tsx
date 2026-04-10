@@ -205,82 +205,94 @@ function ResultadoInner() {
               </div>
 
               {/* ── Oferta ── */}
-              <div style={{ borderTop: "1px solid var(--border-2)", paddingTop: 56 }}>
+              <div style={{ borderTop: "1px solid var(--border-2)", paddingTop: 64 }}>
 
-                <p style={{
-                  ...S.serif,
-                  fontSize: "clamp(24px, 4vw, 34px)",
-                  fontWeight: 300,
-                  color: "var(--text)",
-                  lineHeight: 1.25,
-                  marginBottom: 16,
-                  textAlign: "center",
-                }}>
-                  Essa foi sua primeira palavra.<br />
-                  Imagine receber isso todo dia.
-                </p>
-                <p style={{
-                  fontSize: 15,
-                  color: "var(--text-3)",
-                  textAlign: "center",
-                  lineHeight: 1.75,
-                  marginBottom: 40,
-                  maxWidth: 480,
-                  margin: "0 auto 40px",
-                }}>
-                  Uma mensagem de Deus conectada com o que você está vivendo — não para todo mundo,{" "}
-                  <span style={{ color: "var(--text-2)", fontWeight: 500 }}>para você</span>.
-                  Todo dia, no seu momento.
-                </p>
+                {/* Número animado */}
+                <div style={{ textAlign: "center", marginBottom: 32 }}>
+                  <div style={{
+                    display: "inline-flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    width: 120,
+                    height: 120,
+                    borderRadius: "50%",
+                    border: "1px solid rgba(200,165,90,0.35)",
+                    background: "radial-gradient(circle, rgba(200,165,90,0.10) 0%, transparent 70%)",
+                    marginBottom: 24,
+                    boxShadow: "0 0 40px rgba(200,165,90,0.12), inset 0 0 30px rgba(200,165,90,0.05)",
+                    animation: "glow-breathe 4s ease-in-out infinite",
+                  }}>
+                    <span style={{ ...S.serif, fontSize: 48, fontWeight: 300, color: "var(--gold)", lineHeight: 1 }}>60</span>
+                    <span style={{ fontSize: 9, letterSpacing: "0.18em", color: "var(--gold)", textTransform: "uppercase", marginTop: 2, opacity: 0.8 }}>dias</span>
+                  </div>
+
+                  <p style={{
+                    ...S.serif,
+                    fontSize: "clamp(22px, 4vw, 32px)",
+                    fontWeight: 300,
+                    color: "var(--text)",
+                    lineHeight: 1.25,
+                    marginBottom: 12,
+                  }}>
+                    Essa foi sua primeira palavra.<br />
+                    Imagine receber isso todo dia.
+                  </p>
+                  <p style={{
+                    fontSize: 15,
+                    color: "var(--text-3)",
+                    lineHeight: 1.75,
+                    maxWidth: 420,
+                    margin: "0 auto",
+                  }}>
+                    Uma mensagem de Deus conectada com o que você está vivendo —{" "}
+                    <span style={{ color: "var(--text-2)", fontWeight: 500 }}>não para todo mundo, para você</span>.
+                    Todo dia, no seu momento.
+                  </p>
+                </div>
 
                 {/* Oferta box */}
                 <div style={{
-                  background: "linear-gradient(135deg, rgba(200,165,90,0.08) 0%, transparent 100%)",
-                  border: "1px solid rgba(200,165,90,0.25)",
-                  borderRadius: 12,
-                  padding: "clamp(28px, 4vw, 40px)",
+                  background: "linear-gradient(160deg, rgba(200,165,90,0.09) 0%, rgba(200,165,90,0.03) 100%)",
+                  border: "1px solid rgba(200,165,90,0.3)",
+                  borderRadius: 16,
+                  padding: "clamp(28px, 5vw, 44px)",
                   marginBottom: 16,
+                  boxShadow: "0 0 60px rgba(200,165,90,0.07)",
                 }}>
                   <p style={{
                     fontSize: 10,
                     color: "var(--gold)",
-                    letterSpacing: "0.22em",
+                    letterSpacing: "0.24em",
                     textTransform: "uppercase",
-                    marginBottom: 14,
+                    marginBottom: 20,
                     fontWeight: 600,
                     textAlign: "center",
                   }}>
-                    Desafio 60 dias com Deus
-                  </p>
-                  <p style={{
-                    fontSize: 14,
-                    color: "var(--text-2)",
-                    textAlign: "center",
-                    lineHeight: 1.7,
-                    marginBottom: 28,
-                  }}>
-                    60 dias recebendo uma palavra personalizada para o seu momento.
-                    Uma rotina espiritual que se encaixa na sua vida real.
+                    ✦ Desafio 60 Dias com Deus ✦
                   </p>
 
-                  <div style={{ display: "flex", flexDirection: "column", gap: 10, marginBottom: 28 }}>
+                  <div style={{ display: "flex", flexDirection: "column", gap: 12, marginBottom: 32 }}>
                     {[
-                      "Devocionais ilimitados e personalizados",
-                      "Versículo, reflexão, aplicação e oração",
-                      "Histórico completo da sua jornada espiritual",
-                      "Acesso a qualquer hora, em qualquer momento",
+                      { icon: "🌱", text: "Uma palavra personalizada para o seu momento, todo dia" },
+                      { icon: "📖", text: "Versículo, reflexão, aplicação prática e oração" },
+                      { icon: "📅", text: "Calendário dos 60 dias para acompanhar sua jornada" },
+                      { icon: "🔒", text: "Histórico completo e acesso a qualquer hora" },
                     ].map(f => (
-                      <div key={f} style={{ display: "flex", alignItems: "center", gap: 10 }}>
-                        <div style={{
-                          width: 5,
-                          height: 5,
-                          borderRadius: "50%",
-                          background: "var(--gold)",
-                          flexShrink: 0,
-                        }} />
-                        <span style={{ fontSize: 13, color: "var(--text-2)" }}>{f}</span>
+                      <div key={f.text} style={{ display: "flex", alignItems: "flex-start", gap: 14 }}>
+                        <span style={{ fontSize: 16, flexShrink: 0, marginTop: 1 }}>{f.icon}</span>
+                        <span style={{ fontSize: 14, color: "var(--text-2)", lineHeight: 1.5 }}>{f.text}</span>
                       </div>
                     ))}
+                  </div>
+
+                  {/* Preço */}
+                  <div style={{ textAlign: "center", marginBottom: 20 }}>
+                    <p style={{ fontSize: 12, color: "var(--text-3)", marginBottom: 4 }}>por apenas</p>
+                    <p style={{ ...S.serif, fontSize: 40, fontWeight: 300, color: "var(--gold)", lineHeight: 1 }}>
+                      R$29,90
+                    </p>
+                    <p style={{ fontSize: 12, color: "var(--text-3)", marginTop: 4 }}>por mês · menos de R$1 por dia</p>
                   </div>
 
                   <Link
@@ -290,21 +302,22 @@ function ResultadoInner() {
                       alignItems: "center",
                       justifyContent: "center",
                       gap: 8,
-                      padding: "16px",
+                      padding: "17px",
                       background: "var(--gold)",
                       color: "var(--bg)",
-                      borderRadius: 8,
-                      fontSize: 14,
-                      fontWeight: 600,
+                      borderRadius: 10,
+                      fontSize: 15,
+                      fontWeight: 700,
                       letterSpacing: "0.04em",
-                      marginBottom: 10,
+                      marginBottom: 12,
+                      boxShadow: "0 4px 24px rgba(200,165,90,0.30)",
                     }}
                   >
                     Quero começar meu desafio de 60 dias
-                    <ArrowRight size={14} />
+                    <ArrowRight size={15} />
                   </Link>
                   <p style={{ textAlign: "center", fontSize: 11, color: "var(--text-3)" }}>
-                    R$29,90/mês · Cancele quando quiser · Acesso imediato
+                    Acesso imediato · Cancele quando quiser · Sem risco
                   </p>
                 </div>
 
