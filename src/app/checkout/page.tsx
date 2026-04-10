@@ -67,12 +67,28 @@ function CheckoutInner() {
 
           {/* Plano principal */}
           <div style={{
-            background: "linear-gradient(160deg, rgba(200,165,90,0.09) 0%, rgba(200,165,90,0.02) 100%)",
-            border: "1px solid rgba(200,165,90,0.3)",
+            background: "linear-gradient(160deg, rgba(200,165,90,0.12) 0%, rgba(200,165,90,0.04) 100%)",
+            border: "2px solid rgba(200,165,90,0.55)",
             borderRadius: 12,
             padding: "24px",
             marginBottom: 16,
+            boxShadow: "0 0 32px rgba(200,165,90,0.12)",
           }}>
+            {/* Badge */}
+            <div style={{ marginBottom: 14 }}>
+              <span style={{
+                fontSize: 10,
+                fontWeight: 700,
+                letterSpacing: "0.14em",
+                textTransform: "uppercase",
+                color: "var(--bg)",
+                background: "var(--gold)",
+                padding: "3px 10px",
+                borderRadius: 20,
+              }}>
+                Produto principal
+              </span>
+            </div>
             <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 16 }}>
               <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
                 <span style={{ fontSize: 20 }}>🌱</span>
