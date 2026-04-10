@@ -137,7 +137,7 @@ function CheckoutInner() {
                     </p>
                   </div>
                   <div style={{ flexShrink: 0, marginLeft: 12, textAlign: "right" }}>
-                    <p style={{ fontSize: 14, fontWeight: 700, color: orderBump ? "var(--gold)" : "var(--text-2)" }}>+R$27</p>
+                    <p style={{ fontSize: 14, fontWeight: 700, color: orderBump ? "var(--gold)" : "var(--text-2)" }}>+R$17</p>
                     <p style={{ fontSize: 10, color: "var(--gold)", letterSpacing: "0.04em", marginTop: 2, whiteSpace: "nowrap", fontWeight: 600 }}>pagamento único</p>
                   </div>
                 </div>
@@ -190,7 +190,7 @@ function CheckoutInner() {
             <p style={{ fontSize: 18, fontWeight: 700, color: "var(--text)" }}>
               {plan === "yearly"
                 ? orderBump ? "R$224" : "R$197"
-                : orderBump ? "R$27 + R$27" : "R$27"}
+                : orderBump ? "R$44" : "R$27"}
             </p>
           </div>
 
