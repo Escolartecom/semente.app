@@ -20,15 +20,28 @@ const questions = [
     ],
   },
   {
-    id: "need",
-    question: "O que você mais precisa ouvir agora?",
-    subtitle: "Escolha o que mais ressoa com o seu coração.",
+    id: "area",
+    question: "Qual área da sua vida está mais pesada agora?",
+    subtitle: "Onde você mais precisa de uma palavra de Deus.",
     options: [
-      { label: "Que tudo vai ficar bem", value: "esperança de que tudo vai ficar bem" },
-      { label: "Que Deus não me esqueceu", value: "que Deus não me esqueceu e está presente" },
-      { label: "Que estou no caminho certo", value: "direção e confirmação de que estou no caminho certo" },
-      { label: "Que sou amado, mesmo com minhas falhas", value: "graça e amor incondicional mesmo com minhas falhas" },
-      { label: "Que existe propósito no que estou vivendo", value: "que existe propósito e significado no que estou vivendo" },
+      { label: "Saúde — minha ou de alguém que amo", value: "saúde" },
+      { label: "Relacionamentos e família", value: "relacionamentos e família" },
+      { label: "Trabalho, finanças ou propósito", value: "trabalho e propósito" },
+      { label: "Minha vida espiritual", value: "vida espiritual" },
+      { label: "Emoções — ansiedade, tristeza ou solidão", value: "emoções difíceis" },
+      { label: "Estou passando por uma perda", value: "luto e perda" },
+    ],
+  },
+  {
+    id: "relationship",
+    question: "Como tem sido sua relação com Deus ultimamente?",
+    subtitle: "Não precisa ser perfeito. Só precisa ser verdadeiro.",
+    options: [
+      { label: "Distante — sinto que Ele não me ouve", value: "distante de Deus" },
+      { label: "Presente nos momentos difíceis, mas inconsistente", value: "inconsistente" },
+      { label: "Quero me aproximar, mas não sei como", value: "quer se aproximar" },
+      { label: "Tenho orado, mas falta profundidade", value: "busca profundidade" },
+      { label: "Estou bem — quero ir ainda mais fundo", value: "deseja crescer" },
     ],
   },
   {
@@ -40,7 +53,30 @@ const questions = [
       { label: "Não sei por onde começar", value: "não sei por onde começar" },
       { label: "Me sinto distante e não sei como voltar", value: "distância espiritual" },
       { label: "Falta de constância", value: "falta de constância" },
-      { label: "Não encontro algo que fale comigo de verdade", value: "falta de conexão com o que leio" },
+      { label: "Não encontro algo que fale comigo de verdade", value: "falta de conexão" },
+    ],
+  },
+  {
+    id: "need",
+    question: "O que você mais precisa ouvir de Deus hoje?",
+    subtitle: "Escolha o que mais ressoa com o seu coração.",
+    options: [
+      { label: "Que tudo vai ficar bem", value: "esperança de que tudo vai ficar bem" },
+      { label: "Que Deus não me esqueceu", value: "que Deus não me esqueceu e está presente" },
+      { label: "Que estou no caminho certo", value: "direção e confirmação de que estou no caminho certo" },
+      { label: "Que sou amado, mesmo com minhas falhas", value: "graça e amor incondicional mesmo com minhas falhas" },
+      { label: "Que existe propósito no que estou vivendo", value: "que existe propósito e significado no que estou vivendo" },
+    ],
+  },
+  {
+    id: "commitment",
+    question: "Se Deus falasse com você todo dia por 60 dias, você estaria disposto a ouvir?",
+    subtitle: "Esse é o coração do Desafio Semente.",
+    options: [
+      { label: "Sim. Estou pronto para isso", value: "comprometido" },
+      { label: "Acho que sim — quero ver primeiro", value: "cauteloso" },
+      { label: "Tenho dificuldade com constância, mas quero tentar", value: "motivado" },
+      { label: "Nunca tentei algo assim, mas estou aberto", value: "aberto" },
     ],
   },
 ]
@@ -199,7 +235,7 @@ export default function QuizPage() {
                 border: "none",
               }}
             >
-              {step < questions.length - 1 ? "Continuar" : "Ver minha palavra"}
+              {step < questions.length - 1 ? "Continuar" : "Receber minha semente"}
               <ArrowRight size={13} />
             </button>
           </div>

@@ -691,6 +691,98 @@ export default function LandingPage() {
         </div>
       </section>
 
+      {/* ── FASES DA JORNADA ──────────────────────────────── */}
+      <section style={{ padding: "clamp(72px, 10vw, 120px) clamp(16px, 3vw, 24px)" }}>
+        <div style={S.container}>
+          <div style={{ textAlign: "center", marginBottom: 72 }}>
+            <p style={{
+              fontSize: 11, letterSpacing: "0.22em", color: "var(--gold)",
+              textTransform: "uppercase", marginBottom: 16, fontWeight: 500,
+            }}>
+              Sua jornada
+            </p>
+            <h2 style={{
+              ...S.serif, fontSize: "clamp(28px, 4vw, 44px)",
+              fontWeight: 300, color: "var(--text)", lineHeight: 1.15, marginBottom: 16,
+            }}>
+              60 dias por vez.<br />A vida inteira com Deus.
+            </h2>
+            <p style={{ fontSize: 15, color: "var(--text-3)", lineHeight: 1.75, maxWidth: 480, margin: "0 auto" }}>
+              O Desafio Semente não termina em 60 dias. Cada fase te leva mais fundo — uma jornada contínua de transformação.
+            </p>
+          </div>
+
+          <div style={{ maxWidth: 580, margin: "0 auto", display: "flex", flexDirection: "column" }}>
+            {[
+              {
+                icon: "🌱",
+                period: "Dias 1 – 60",
+                name: "Fase Semente",
+                motto: "Plante a Palavra",
+                description: "Toda grande árvore começou como uma semente. Nos seus primeiros 60 dias, você vai plantar a Palavra de Deus no lugar mais profundo da sua vida. Uma semente por dia. Todo dia. Sem falhar.",
+              },
+              {
+                icon: "🌿",
+                period: "Dias 61 – 120",
+                name: "Fase Raízes",
+                motto: "Aprofunde a fé",
+                description: "Semente plantada precisa de raízes para sobreviver à tempestade. Nos próximos 60 dias, a Palavra vai descer mais fundo do que você imagina. Você vai descobrir uma fé que não balança.",
+              },
+              {
+                icon: "🌳",
+                period: "Dias 121 – 180",
+                name: "Fase Fruto",
+                motto: "Viva o que cresceu",
+                description: "Raízes profundas produzem frutos que o mundo não consegue ignorar. O que Deus plantou em você começa a aparecer. Isso não é mais só sobre você — é sobre o que você carrega.",
+              },
+            ].map((phase, i, arr) => (
+              <div key={phase.name} style={{ display: "flex", gap: 28 }}>
+                {/* Linha do tempo */}
+                <div style={{ display: "flex", flexDirection: "column", alignItems: "center", flexShrink: 0 }}>
+                  <div style={{
+                    width: 48, height: 48, borderRadius: "50%",
+                    border: "1px solid rgba(200,165,90,0.5)",
+                    background: "rgba(200,165,90,0.07)",
+                    display: "flex", alignItems: "center", justifyContent: "center",
+                    fontSize: 20, flexShrink: 0,
+                  }}>
+                    {phase.icon}
+                  </div>
+                  {i < arr.length - 1 && (
+                    <div style={{ width: 1, flex: 1, background: "var(--border-2)", margin: "8px 0", minHeight: 48 }} />
+                  )}
+                </div>
+
+                {/* Conteúdo */}
+                <div style={{ paddingBottom: i < arr.length - 1 ? 52 : 0, paddingTop: 4 }}>
+                  <p style={{
+                    fontSize: 10, color: "var(--gold)", letterSpacing: "0.18em",
+                    textTransform: "uppercase", marginBottom: 6, fontWeight: 600,
+                  }}>
+                    {phase.period}
+                  </p>
+                  <h3 style={{
+                    ...S.serif, fontSize: "clamp(20px, 3vw, 26px)",
+                    fontWeight: 300, color: "var(--text)", marginBottom: 6,
+                  }}>
+                    {phase.name}
+                  </h3>
+                  <p style={{
+                    fontSize: 13, color: "var(--gold)", fontStyle: "italic",
+                    marginBottom: 12, letterSpacing: "0.04em",
+                  }}>
+                    "{phase.motto}"
+                  </p>
+                  <p style={{ fontSize: 14, color: "var(--text-3)", lineHeight: 1.8 }}>
+                    {phase.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── PRICING ───────────────────────────────────────── */}
       <section
         id="precos"
@@ -744,7 +836,7 @@ export default function LandingPage() {
                 }}
               >
                 {b === "monthly" ? "Mensal" : "Anual"}
-                {b === "yearly" && <span style={{ marginLeft: 4, fontSize: 10, color: "var(--gold)", fontWeight: 600 }}>-45%</span>}
+                {b === "yearly" && <span style={{ marginLeft: 4, fontSize: 10, color: "var(--gold)", fontWeight: 600 }}>-40%</span>}
               </button>
             ))}
           </div>
@@ -850,10 +942,10 @@ export default function LandingPage() {
                   marginBottom: 4,
                 }}
               >
-                {billing === "monthly" ? "R$29,90" : "R$197"}
+                {billing === "monthly" ? "R$27" : "R$197"}
               </p>
               <p style={{ fontSize: 13, color: "var(--text-3)", marginBottom: 32 }}>
-                {billing === "monthly" ? "por mês · cancele quando quiser" : "por ano · equivale a R$16/mês"}
+                {billing === "monthly" ? "por mês · menos de R$1 por dia" : "por ano · equivale a R$16/mês"}
               </p>
               <p style={{ fontSize: 13, color: "var(--text-2)", marginBottom: 24, lineHeight: 1.65 }}>
                 Uma palavra de Deus todos os dias, exatamente para o momento que você está vivendo.
