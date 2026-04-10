@@ -506,9 +506,13 @@ export default function LandingPage() {
                   fontWeight: 500,
                 }}
               >
-                Exemplo real
+                Dia 1 do seu desafio
               </p>
-              <h2
+              <motion.h2
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
                 style={{
                   ...S.serif,
                   fontSize: "clamp(28px, 4vw, 42px)",
@@ -518,17 +522,25 @@ export default function LandingPage() {
                   marginBottom: 20,
                 }}
               >
-                Cada devocional é único — feito para o que você está vivendo agora.
-              </h2>
-              <p style={{ fontSize: 15, color: "var(--text-2)", lineHeight: 1.7 }}>
-                Não é uma devoção genérica. É uma
-                palavra direcionada para o momento que você está vivendo — 
-                com profundidade, sensibilidade e cuidado.
-              </p>
+                Cada dia, uma palavra de Deus preparada para o seu momento.
+              </motion.h2>
+              <motion.p
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+                style={{ fontSize: 15, color: "var(--text-2)", lineHeight: 1.7 }}
+              >
+                Não é uma devoção genérica. É uma palavra gerada para o que você está carregando hoje — com profundidade, sensibilidade e cuidado. Diferente todos os dias. Sempre sobre você.
+              </motion.p>
             </div>
 
-            {/* Sample devotional card */}
-            <div
+            {/* Card animado */}
+            <motion.div
+              initial={{ opacity: 0, y: 32 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
               style={{
                 background: "var(--bg-3)",
                 border: "1px solid var(--border)",
@@ -537,94 +549,59 @@ export default function LandingPage() {
                 display: "flex",
                 flexDirection: "column",
                 gap: 24,
+                boxShadow: "0 0 60px rgba(200,165,90,0.06)",
               }}
             >
-              <div>
-                <p
-                  style={{
-                    fontSize: 10,
-                    letterSpacing: "0.18em",
-                    color: "var(--text-3)",
-                    textTransform: "uppercase",
-                    marginBottom: 12,
-                  }}
-                >
+              <motion.div
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+              >
+                <p style={{ fontSize: 10, letterSpacing: "0.18em", color: "var(--text-3)", textTransform: "uppercase", marginBottom: 12 }}>
                   Sentimento · Ansioso
                 </p>
-                <h3
-                  style={{
-                    ...S.serif,
-                    fontSize: 22,
-                    fontWeight: 400,
-                    color: "var(--text)",
-                    lineHeight: 1.2,
-                  }}
-                >
+                <h3 style={{ ...S.serif, fontSize: 22, fontWeight: 400, color: "var(--text)", lineHeight: 1.2 }}>
                   Paz que Excede o Entendimento
                 </h3>
-              </div>
+              </motion.div>
 
-              <div
-                style={{
-                  borderLeft: "2px solid var(--gold)",
-                  paddingLeft: 20,
-                }}
+              <motion.div
+                initial={{ opacity: 0, x: -12 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.55 }}
+                style={{ borderLeft: "2px solid var(--gold)", paddingLeft: 20 }}
               >
-                <p
-                  style={{
-                    ...S.serif,
-                    fontSize: 15,
-                    fontStyle: "italic",
-                    color: "var(--text-2)",
-                    lineHeight: 1.65,
-                  }}
-                >
-                  "E a paz de Deus, que excede todo o entendimento, guardará
-                  os vossos corações e os vossos pensamentos em Cristo Jesus."
+                <p style={{ ...S.serif, fontSize: 15, fontStyle: "italic", color: "var(--text-2)", lineHeight: 1.65 }}>
+                  "E a paz de Deus, que excede todo o entendimento, guardará os vossos corações e os vossos pensamentos em Cristo Jesus."
                 </p>
-                <p
-                  style={{
-                    fontSize: 11,
-                    color: "var(--gold)",
-                    letterSpacing: "0.1em",
-                    marginTop: 10,
-                    fontWeight: 500,
-                  }}
-                >
+                <p style={{ fontSize: 11, color: "var(--gold)", letterSpacing: "0.1em", marginTop: 10, fontWeight: 500 }}>
                   FILIPENSES 4:7
                 </p>
-              </div>
+              </motion.div>
 
-              <p style={{ fontSize: 13, color: "var(--text-2)", lineHeight: 1.7 }}>
-                A ansiedade nos diz que precisamos resolver tudo agora. Mas a
-                Palavra nos convida a uma troca: entregar o peso e receber a
-                paz que não tem lógica humana...
-              </p>
-
-              <div
-                style={{
-                  borderTop: "1px solid var(--border-2)",
-                  paddingTop: 20,
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "space-between",
-                }}
+              <motion.p
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.7 }}
+                style={{ fontSize: 13, color: "var(--text-2)", lineHeight: 1.8 }}
               >
-                <span style={{ fontSize: 12, color: "var(--text-3)" }}>
-                  Reflexão · Aplicação · Oração
-                </span>
-                <span
-                  style={{
-                    fontSize: 11,
-                    color: "var(--gold)",
-                    letterSpacing: "0.1em",
-                    fontWeight: 500,
-                  }}
-                >
-                  Semente
-                </span>
-              </div>
-            </div>
+                A ansiedade nos diz que precisamos resolver tudo agora. Mas a Palavra nos convida a uma troca: entregar o peso e receber a paz que não tem lógica humana...
+              </motion.p>
+
+              <motion.div
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.85 }}
+                style={{ borderTop: "1px solid var(--border-2)", paddingTop: 20, display: "flex", alignItems: "center", justifyContent: "space-between" }}
+              >
+                <span style={{ fontSize: 12, color: "var(--text-3)" }}>Reflexão · Aplicação · Oração</span>
+                <span style={{ fontSize: 11, color: "var(--gold)", letterSpacing: "0.1em", fontWeight: 500 }}>✦ Semente · Dia 1</span>
+              </motion.div>
+            </motion.div>
           </div>
         </div>
       </section>
