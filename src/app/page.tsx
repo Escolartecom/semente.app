@@ -38,18 +38,18 @@ const premiumFeatures = [
 const steps = [
   {
     n: "01",
-    title: "Conte como você está",
-    body: "Escolha um sentimento ou escreva o que está vivendo — de forma simples e pessoal.",
+    title: "Conte o seu momento",
+    body: "Responda algumas perguntas sobre o que você está vivendo agora. O que está sentindo. O que mais pesa. O que você mais precisa ouvir.",
   },
   {
     n: "02",
-    title: "Receba uma palavra de Deus",
-    body: "Um devocional completo com versículo, reflexão, aplicação e oração.",
+    title: "Receba a palavra do seu momento",
+    body: "Uma palavra de Deus preparada especificamente para você — não genérica, não para o mundo. Para o que você está vivendo hoje, com profundidade e cuidado.",
   },
   {
     n: "03",
-    title: "Leve para o seu dia",
-    body: "Salve, releia e construa um relacionamento constante com Deus.",
+    title: "Sinta a diferença em 60 dias",
+    body: "Uma semente por dia. Sessenta encontros com Deus. Ao final, uma vida que você não vai mais reconhecer.",
   },
 ]
 
@@ -296,7 +296,7 @@ export default function LandingPage() {
               fontWeight: 400,
             }}
           >
-            60 dias recebendo uma palavra de Deus feita para o seu momento — personalizada, profunda, todo dia.
+            Você já leu uma palavra que parecia ter sido escrita só pra você? O Desafio Semente existe para que isso aconteça todo dia — uma palavra preparada para o seu momento exato, para o que você está sentindo hoje, para a dor que só você e Deus sabem que existe.
           </motion.p>
 
           {/* CTAs */}
@@ -1011,10 +1011,10 @@ export default function LandingPage() {
               marginBottom: 20,
             }}
           >
-            Pronto para os seus 60 dias com Deus?
+            Sua vida pode ser completamente diferente em 60 dias.
           </h2>
           <p style={{ fontSize: 16, color: "var(--text-3)", lineHeight: 1.75, marginBottom: 40 }}>
-            Descubra sua primeira palavra agora — leva menos de 2 minutos.
+            Começa com uma pergunta simples. Termina com uma transformação que você não vai conseguir explicar pra ninguém — só sentir.
           </p>
           <Link
             href="/quiz"

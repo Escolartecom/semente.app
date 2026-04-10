@@ -50,17 +50,17 @@ function CheckoutInner() {
             fontSize: 11, color: "var(--gold)", letterSpacing: "0.20em",
             textTransform: "uppercase", marginBottom: 12, fontWeight: 500,
           }}>
-            ✦ Quase lá ✦
+            ✦ Desafio Semente ✦
           </p>
           <h1 style={{
             ...S.serif,
             fontSize: "clamp(24px, 4vw, 34px)",
             fontWeight: 300, color: "var(--text)", lineHeight: 1.2, marginBottom: 8,
           }}>
-            Revise seu pedido antes de finalizar.
+            Você está prestes a tomar uma decisão que pode mudar a sua vida para sempre.
           </h1>
           <p style={{ fontSize: 14, color: "var(--text-3)", marginBottom: 40, lineHeight: 1.6 }}>
-            Um último passo antes de começar sua jornada.
+            60 dias com Deus. Uma palavra preparada para o seu momento, todo dia. Ao final, uma vida que você não vai mais reconhecer.
           </p>
 
           {/* Plano principal */}
@@ -198,6 +198,9 @@ function CheckoutInner() {
               : <><span>Finalizar e aceitar o desafio</span><ArrowRight size={15} /></>
             }
           </button>
+          <p style={{ textAlign: "center", fontSize: 12, color: "var(--text-3)", marginBottom: 8, fontStyle: "italic" }}>
+            "60 dias com Deus. Uma vida transformada."
+          </p>
           <p style={{ textAlign: "center", fontSize: 11, color: "var(--text-3)" }}>
             Pagamento seguro via Stripe · Cancele quando quiser
           </p>

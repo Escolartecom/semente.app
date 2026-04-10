@@ -94,7 +94,7 @@ function ResultadoInner() {
                 className="animate-spin"
               />
               <p style={{ ...S.serif, fontSize: 22, color: "var(--text-2)", fontWeight: 300, lineHeight: 1.5 }}>
-                Preparando sua semente<br />com cuidado...
+                Preparando a palavra<br />do seu momento...
               </p>
             </div>
           )}
@@ -138,7 +138,7 @@ function ResultadoInner() {
                 {devotional.title}
               </h1>
               <p style={{ fontSize: 14, color: "var(--text-3)", marginBottom: 44, lineHeight: 1.5 }}>
-                Preparado para o que você está vivendo agora.
+                Essa palavra não foi escrita para o mundo. Foi escrita para você — para esse momento, para essa dor, para essa busca.
               </p>
 
               {/* Verse — sempre visível */}
@@ -221,10 +221,10 @@ function ResultadoInner() {
                       lineHeight: 1.3,
                       marginBottom: 10,
                     }}>
-                      Sua palavra está quase completa.
+                      Sua palavra ainda não terminou.
                     </h2>
                     <p style={{ fontSize: 14, color: "var(--text-3)", marginBottom: 28, lineHeight: 1.65 }}>
-                      Coloque seu email para receber a reflexão, a aplicação prática e a oração que foram preparadas pra você.
+                      A reflexão, a aplicação prática e a oração foram preparadas especialmente para o seu momento. Coloque seu email para receber tudo.
                     </p>
 
                     <form onSubmit={handleEmailSubmit} style={{ display: "flex", flexDirection: "column", gap: 12 }}>
@@ -376,20 +376,18 @@ function ResultadoInner() {
                         lineHeight: 1.25,
                         marginBottom: 12,
                       }}>
-                        Você recebeu sua primeira semente.<br />
-                        Agora imagine o que 60 dias<br />
-                        podem plantar na sua vida.
+                        Percebeu como essa palavra<br />falou com o que você está vivendo?
                       </p>
                       <p style={{
                         fontSize: 15,
                         color: "var(--text-3)",
                         lineHeight: 1.75,
-                        maxWidth: 420,
+                        maxWidth: 440,
                         margin: "0 auto",
                       }}>
-                        Uma palavra de Deus conectada com o que você está vivendo —{" "}
-                        <span style={{ color: "var(--text-2)", fontWeight: 500 }}>não para todo mundo, para você</span>.
-                        Todo dia, durante 60 dias.
+                        Agora imagine receber isso todo dia. Por 60 dias seguidos.{" "}
+                        <span style={{ color: "var(--text-2)", fontWeight: 500 }}>Uma palavra preparada para o seu momento — sempre sobre você, nunca igual à de ontem.</span>
+                        {" "}Ao final dos 60 dias, você vai olhar pra trás e não acreditar em quem você era quando começou.
                       </p>
                     </div>
 
