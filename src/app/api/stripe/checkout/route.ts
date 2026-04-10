@@ -18,13 +18,12 @@ export async function GET(req: Request) {
         ? process.env.STRIPE_PRICE_YEARLY!
         : process.env.STRIPE_PRICE_MONTHLY!
 
-    // Line items — apenas a assinatura
-    const lineItems = [{ price: priceId, quantity: 1 }]
-
-    // Order bump (Clamor) é one-time — vai em add_invoice_items na primeira fatura
-    const addInvoiceItems: { price: string; quantity: number }[] = []
+    // Line items — assinatura + order bump (one-time, cobrado na primeira fatura)
+    const lineItems: { price: string; quantity: number }[] = [
+      { price: priceId, quantity: 1 },
+    ]
     if (orderBump && process.env.STRIPE_PRICE_ORDER_BUMP) {
-      addInvoiceItems.push({ price: process.env.STRIPE_PRICE_ORDER_BUMP, quantity: 1 })
+      lineItems.push({ price: process.env.STRIPE_PRICE_ORDER_BUMP, quantity: 1 })
     }
 
     // ── Fluxo autenticado ──────────────────────────────────────
@@ -56,7 +55,6 @@ export async function GET(req: Request) {
         line_items: lineItems,
         subscription_data: {
           metadata: { userId: session.user.id },
-          ...(addInvoiceItems.length > 0 ? { add_invoice_items: addInvoiceItems } : {}),
         },
         success_url: `${baseUrl}/dashboard?upgraded=true`,
         cancel_url:  `${baseUrl}/checkout?plan=${plan}`,
@@ -87,7 +85,6 @@ export async function GET(req: Request) {
         line_items: lineItems,
         subscription_data: {
           metadata: { email: emailParam },
-          ...(addInvoiceItems.length > 0 ? { add_invoice_items: addInvoiceItems } : {}),
         },
         success_url: successUrl,
         cancel_url:  `${baseUrl}/checkout?plan=${plan}&email=${encodeURIComponent(emailParam)}`,
