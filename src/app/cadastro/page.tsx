@@ -51,8 +51,10 @@ function CadastroPageInner() {
   const router = useRouter()
   const searchParams = useSearchParams()
   const next = searchParams.get("next") || "/dashboard"
+  const emailFromCheckout = searchParams.get("email") || ""
+  const fromCheckout = !!emailFromCheckout
   const [name, setName]         = useState("")
-  const [email, setEmail]       = useState("")
+  const [email, setEmail]       = useState(emailFromCheckout)
   const [password, setPassword] = useState("")
   const [showPwd, setShowPwd]   = useState(false)
   const [loading, setLoading]   = useState(false)
@@ -178,13 +180,15 @@ function CadastroPageInner() {
 
           {/* Heading */}
           <p style={{ fontSize: 11, color: "var(--gold)", letterSpacing: "0.18em", textTransform: "uppercase", marginBottom: 14, fontWeight: 500 }}>
-            Cadastro
+            {fromCheckout ? "Pagamento confirmado" : "Cadastro"}
           </p>
           <h1 style={{ ...S.serif, fontSize: "clamp(26px, 3vw, 34px)", fontWeight: 300, color: "var(--text)", lineHeight: 1.1, marginBottom: 10 }}>
-            Criar conta grátis
+            {fromCheckout ? "Crie sua senha para acessar o Semente" : "Criar conta grátis"}
           </h1>
           <p style={{ fontSize: 14, color: "var(--text-2)", marginBottom: 40, lineHeight: 1.5 }}>
-            Sem cartão de crédito · Comece em segundos.
+            {fromCheckout
+              ? "Seu pagamento foi confirmado! Crie sua senha para acessar o Semente."
+              : "Sem cartão de crédito · Comece em segundos."}
           </p>
 
           {/* Form */}
@@ -208,10 +212,11 @@ function CadastroPageInner() {
                 type="email"
                 placeholder="seu@email.com"
                 value={email}
-                onChange={e => setEmail(e.target.value)}
+                onChange={fromCheckout ? undefined : e => setEmail(e.target.value)}
+                readOnly={fromCheckout}
                 required
                 autoComplete="email"
-                style={S.input}
+                style={{ ...S.input, ...(fromCheckout ? { opacity: 0.7, cursor: "default" } : {}) }}
               />
             </div>
 

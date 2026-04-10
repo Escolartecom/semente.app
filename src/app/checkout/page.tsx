@@ -14,6 +14,7 @@ function CheckoutInner() {
   const searchParams = useSearchParams()
   const router = useRouter()
   const plan = searchParams.get("plan") || "monthly"
+  const emailParam = searchParams.get("email") || ""
   const [orderBump, setOrderBump] = useState(false)
   const [loading, setLoading] = useState(false)
 
@@ -24,6 +25,7 @@ function CheckoutInner() {
     setLoading(true)
     const params = new URLSearchParams({ plan })
     if (orderBump) params.set("orderBump", "true")
+    if (emailParam) params.set("email", emailParam)
     router.push(`/api/stripe/checkout?${params.toString()}`)
   }
 
