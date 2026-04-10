@@ -1,8 +1,8 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { Suspense, useState, useEffect } from "react"
 import Link from "next/link"
-import { useRouter } from "next/navigation"
+import { useRouter, useSearchParams } from "next/navigation"
 import { signIn, useSession } from "next-auth/react"
 import { Eye, EyeOff, Loader2, Check } from "lucide-react"
 import { Logo } from "@/components/logo"
@@ -39,8 +39,18 @@ const S = {
 }
 
 export default function CadastroPage() {
+  return (
+    <Suspense fallback={<div style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", background: "var(--bg)" }}><Logo size="md" variant="light" /></div>}>
+      <CadastroPageInner />
+    </Suspense>
+  )
+}
+
+function CadastroPageInner() {
   const { status } = useSession()
   const router = useRouter()
+  const searchParams = useSearchParams()
+  const next = searchParams.get("next") || "/dashboard"
   const [name, setName]         = useState("")
   const [email, setEmail]       = useState("")
   const [password, setPassword] = useState("")
@@ -49,8 +59,8 @@ export default function CadastroPage() {
   const [error, setError]       = useState("")
 
   useEffect(() => {
-    if (status === "authenticated") router.replace("/dashboard")
-  }, [status, router])
+    if (status === "authenticated") router.replace(next)
+  }, [status, router, next])
 
   if (status === "loading" || status === "authenticated") {
     return (
@@ -88,7 +98,7 @@ export default function CadastroPage() {
         router.push("/login")
         return
       }
-      router.replace("/dashboard")
+      router.replace(next)
     } catch {
       router.push("/login")
     }

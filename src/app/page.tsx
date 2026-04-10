@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
+import { useSession } from "next-auth/react"
 import { Logo } from "@/components/logo"
 import { ArrowRight, Check, ChevronDown } from "lucide-react"
 
@@ -63,6 +64,13 @@ const S = {
 
 export default function LandingPage() {
   const [billing, setBilling] = useState<"monthly" | "yearly">("monthly")
+  const { data: session } = useSession()
+
+  function checkoutHref(plan: "monthly" | "yearly") {
+    const dest = `/api/stripe/checkout?plan=${plan}`
+    if (session?.user) return dest
+    return `/cadastro?next=${encodeURIComponent(dest)}`
+  }
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -791,7 +799,7 @@ export default function LandingPage() {
                 ))}
               </div>
               <Link
-                href="/cadastro"
+                href={checkoutHref(billing)}
                 style={{
                   display: "block",
                   textAlign: "center",

@@ -1,8 +1,8 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { Suspense, useState, useEffect } from "react"
 import Link from "next/link"
-import { useRouter } from "next/navigation"
+import { useRouter, useSearchParams } from "next/navigation"
 import { signIn, useSession } from "next-auth/react"
 import { Eye, EyeOff, Loader2 } from "lucide-react"
 import { Logo } from "@/components/logo"
@@ -32,8 +32,18 @@ const S = {
 }
 
 export default function LoginPage() {
+  return (
+    <Suspense fallback={<div style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", background: "var(--bg)" }}><Logo size="md" variant="light" /></div>}>
+      <LoginPageInner />
+    </Suspense>
+  )
+}
+
+function LoginPageInner() {
   const { status } = useSession()
   const router = useRouter()
+  const searchParams = useSearchParams()
+  const next = searchParams.get("next") || "/dashboard"
   const [email, setEmail]       = useState("")
   const [password, setPassword] = useState("")
   const [showPwd, setShowPwd]   = useState(false)
@@ -41,7 +51,7 @@ export default function LoginPage() {
   const [error, setError]       = useState("")
 
   useEffect(() => {
-    if (status === "authenticated") router.replace("/dashboard")
+    if (status === "authenticated") router.replace(next)
   }, [status, router])
 
   if (status === "loading" || status === "authenticated") {
@@ -63,7 +73,7 @@ export default function LoginPage() {
         setLoading(false)
         return
       }
-      router.replace("/dashboard")
+      router.replace(next)
     } catch {
       setError("Email ou senha incorretos. Tente novamente.")
       setLoading(false)
