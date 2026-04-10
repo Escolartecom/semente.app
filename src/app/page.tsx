@@ -24,15 +24,15 @@ const PARTICLES = [
 
 /* ─── Pricing data ──────────────────────────────────────────── */
 const freeFeatures = [
-  "Comece gratuitamente agora",
-  "Versículo + reflexão + oração",
-  "Depois, acesso limitado",
+  "1 palavra por semana, para sempre",
+  "Versículo, reflexão e oração",
+  "Sem cartão de crédito",
 ]
 const premiumFeatures = [
-  "Uma palavra personalizada todos os dias",
-  "Devocionais ilimitados para qualquer momento",
-  "Salve e releia quando precisar",
-  "Construa seu histórico espiritual",
+  "Uma palavra preparada para o seu momento, todo dia",
+  "Progresso — Fase Semente, Raízes e Fruto",
+  "Histórico completo da sua jornada",
+  "Acesso imediato · Cancele quando quiser",
 ]
 
 const steps = [
@@ -104,7 +104,7 @@ export default function LandingPage() {
   const { data: session } = useSession()
 
   function checkoutHref(plan: "monthly" | "yearly") {
-    const dest = `/api/stripe/checkout?plan=${plan}`
+    const dest = `/checkout?plan=${plan}`
     if (session?.user) return dest
     return `/cadastro?next=${encodeURIComponent(dest)}`
   }
@@ -816,7 +816,7 @@ export default function LandingPage() {
                 lineHeight: 1.1,
               }}
             >
-              Comece grátis. Cresça no seu ritmo.
+              Escolha como começar sua jornada.
             </h2>
           </div>
 
@@ -931,7 +931,7 @@ export default function LandingPage() {
                 Recomendado
               </div>
               <p style={{ fontSize: 12, color: "var(--gold)", letterSpacing: "0.14em", marginBottom: 12, textTransform: "uppercase" }}>
-                Premium
+                Desafio Semente
               </p>
               <p
                 style={{
@@ -948,7 +948,7 @@ export default function LandingPage() {
                 {billing === "monthly" ? "por mês · menos de R$1 por dia" : "por ano · equivale a R$16/mês"}
               </p>
               <p style={{ fontSize: 13, color: "var(--text-2)", marginBottom: 24, lineHeight: 1.65 }}>
-                Uma palavra de Deus todos os dias, exatamente para o momento que você está vivendo.
+                60 dias com Deus. Uma palavra preparada para o seu momento — todo dia, sempre sobre você, nunca igual à de ontem.
               </p>
               <div style={{ display: "flex", flexDirection: "column", gap: 12, marginBottom: 24 }}>
                 {premiumFeatures.map((f) => (
@@ -979,7 +979,7 @@ export default function LandingPage() {
                   letterSpacing: "0.04em",
                 }}
               >
-                Começar minha rotina com Deus
+                Aceitar o desafio
               </Link>
             </div>
           </div>
