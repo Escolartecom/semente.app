@@ -277,9 +277,9 @@ export default function LandingPage() {
               letterSpacing: "-0.01em",
             }}
           >
-            Deus ainda
+            Deus quer
             <br />
-            <em style={{ fontStyle: "italic", fontWeight: 300 }}>fala com você.</em>
+            <em style={{ fontStyle: "italic", fontWeight: 300 }}>falar com você.</em>
           </motion.h1>
 
           {/* Subtext */}

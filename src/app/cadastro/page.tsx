@@ -126,7 +126,7 @@ function CadastroPageInner() {
               marginBottom: 36,
             }}
           >
-            Deus ainda fala com você — todos os dias
+            Deus quer falar com você — todos os dias
           </h2>
           <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
             {perks.map(perk => (

@@ -8,7 +8,7 @@ import { ArrowRight, ArrowLeft } from "lucide-react"
 const questions = [
   {
     id: "feeling",
-    question: "Como você está chegando hoje?",
+    question: "Como você está se sentindo agora, de verdade?",
     subtitle: "Seja honesto. Não tem resposta certa ou errada.",
     options: [
       { label: "Cansado e sem forças", value: "esgotado" },

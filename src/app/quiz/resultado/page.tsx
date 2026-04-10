@@ -21,9 +21,11 @@ interface Devotional {
 
 function ResultadoInner() {
   const searchParams = useSearchParams()
-  const feeling = searchParams.get("feeling") || "ansioso"
-  const need    = searchParams.get("need")    || ""
-  const area    = searchParams.get("area")    || ""
+  const feeling      = searchParams.get("feeling")      || "ansioso"
+  const need         = searchParams.get("need")         || ""
+  const area         = searchParams.get("area")         || ""
+  const relationship = searchParams.get("relationship") || ""
+  const barrier      = searchParams.get("barrier")      || ""
 
   const [devotional, setDevotional]         = useState<Devotional | null>(null)
   const [loading, setLoading]               = useState(true)
@@ -39,7 +41,7 @@ function ResultadoInner() {
     fetch("/api/quiz/generate", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ feeling, need, area }),
+      body: JSON.stringify({ feeling, need, area, relationship, barrier }),
     })
       .then(r => r.json())
       .then(data => {
@@ -62,7 +64,7 @@ function ResultadoInner() {
     await fetch("/api/quiz/lead", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email: trimmed, feeling, need, area }),
+      body: JSON.stringify({ email: trimmed, feeling, need, area, relationship, barrier }),
     }).catch(() => {})
     setEmailUnlocked(true)
     setSubmitting(false)

@@ -112,11 +112,11 @@ export default function PresellPage() {
             fontWeight: 300,
           }}
         >
-          Não para o mundo todo.
+          Para o que você está carregando hoje.
           <br />
-          Para o que <em style={{ color: "var(--text-2)", fontStyle: "italic" }}>você</em> está sentindo agora.
+          Para a dor que você não contou pra ninguém.
           <br />
-          Nesse exato momento.
+          Para o momento que <em style={{ color: "var(--text-2)", fontStyle: "italic" }}>só Deus conhece.</em>
         </motion.p>
 
         {/* CTA */}

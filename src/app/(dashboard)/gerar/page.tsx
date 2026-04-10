@@ -160,7 +160,7 @@ const isPremiumRequired = session?.user?.plan === "free" && devotionalCount !== 
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
             <Link
-              href="/api/stripe/checkout?plan=monthly"
+              href="/checkout?plan=monthly"
               style={{
                 display: "flex",
                 alignItems: "center",
@@ -176,10 +176,10 @@ const isPremiumRequired = session?.user?.plan === "free" && devotionalCount !== 
                 textAlign: "center",
               }}
             >
-              Assinar Premium — R$29,90/mês
+              Aceitar o Desafio — R$27/mês
             </Link>
             <Link
-              href="/api/stripe/checkout?plan=yearly"
+              href="/checkout?plan=yearly"
               style={{
                 display: "flex",
                 alignItems: "center",
@@ -192,7 +192,7 @@ const isPremiumRequired = session?.user?.plan === "free" && devotionalCount !== 
                 textAlign: "center",
               }}
             >
-              Plano Anual — R$197/ano · economia de 45%
+              Jornada Completa — R$197/ano · economia de 40%
             </Link>
             <p style={{ textAlign: "center", fontSize: 11, color: "var(--text-3)" }}>
               Cancele quando quiser · Acesso imediato

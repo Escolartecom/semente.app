@@ -8,34 +8,30 @@ export async function POST(req: Request) {
   if (!session?.user?.id) {
     return NextResponse.json({ error: "Não autorizado" }, { status: 401 })
   }
-console.log("MEU_ID:", session.user.id)
+
   const { feeling, userInput } = await req.json()
-const user = await db.user.findUnique({
-  where: { id: session.user.id },
-})
 
-if (!user) {
-  return NextResponse.json({ error: "Usuário não encontrado" }, { status: 404 })
-}
+  const user = await db.user.findUnique({
+    where: { id: session.user.id },
+    select: { plan: true, email: true },
+  })
 
-const oneWeekAgo = new Date()
-oneWeekAgo.setDate(oneWeekAgo.getDate() - 7)
+  if (!user) {
+    return NextResponse.json({ error: "Usuário não encontrado" }, { status: 404 })
+  }
 
-const recentDevotionalCount = await db.devotional.count({
-  where: {
-    userId: session.user.id,
-    createdAt: {
-      gte: oneWeekAgo,
-    },
-  },
-})
-
-if (false) {
-  return NextResponse.json(
-    { error: "FREE_LIMIT_REACHED" },
-    { status: 403 }
-  )
-}
+  // Limite free: 1 devocional por semana
+  const isAdminBypass = user.email === "trabalho.smcc@gmail.com"
+  if (user.plan === "free" && !isAdminBypass) {
+    const oneWeekAgo = new Date()
+    oneWeekAgo.setDate(oneWeekAgo.getDate() - 7)
+    const recentCount = await db.devotional.count({
+      where: { userId: session.user.id, createdAt: { gte: oneWeekAgo } },
+    })
+    if (recentCount >= 1) {
+      return NextResponse.json({ error: "FREE_LIMIT_REACHED" }, { status: 403 })
+    }
+  }
   const devotionalData = await generateDevotional({ feeling, userInput })
 
   const devotional = await db.devotional.create({
