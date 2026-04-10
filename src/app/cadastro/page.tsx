@@ -8,7 +8,7 @@ import { Eye, EyeOff, Loader2, Check } from "lucide-react"
 import { Logo } from "@/components/logo"
 
 const perks = [
-  "Receba uma palavra de Deus personalizada para você todos os dias",
+  "Receba uma palavra de Deus para o seu momento, todos os dias",
   "Versículo, reflexão, aplicação e oração",
   "Salvar favoritos e histórico espiritual",
   "Comece gratuitamente agora",

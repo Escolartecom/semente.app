@@ -84,7 +84,7 @@ function CheckoutInner() {
 
             <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
               {[
-                "Palavra personalizada todo dia",
+                "Uma palavra de Deus para o seu momento, todos os dias",
                 "Versículo, reflexão e oração",
                 "Progresso Fase Semente → Raízes → Fruto",
                 "Cancele quando quiser",
