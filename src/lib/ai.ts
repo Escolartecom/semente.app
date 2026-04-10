@@ -31,9 +31,10 @@ const generationId = `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`
   const prompt = `
 Você é um escritor cristão pastoral, sensível, profundo e bíblico.
 
-Crie um devocional original, em português do Brasil, com linguagem humana, acolhedora, espiritual e nada genérica.
+Crie um devocional original, EXCLUSIVAMENTE em português do Brasil, com linguagem humana, acolhedora, espiritual e nada genérica.
 
-IMPORTANTE:
+REGRAS ABSOLUTAS:
+- Escreva APENAS em português do Brasil. Zero palavras em outros idiomas.
 - Gere um texto NOVO e DIFERENTE a cada chamada
 - Nunca repita literalmente devocionais anteriores
 - Pode usar versículos bíblicos conhecidos, mas a reflexão, aplicação e oração devem ser originais
@@ -44,6 +45,8 @@ IMPORTANTE:
 - Responda SOMENTE em JSON válido
 - Não inclua markdown
 - Não inclua texto fora do JSON
+- Todos os campos do JSON devem conter APENAS texto em português do Brasil
+
 Dê preferência a versículos do Novo Testamento, especialmente palavras de Jesus, cartas apostólicas e textos que transmitam graça, esperança e acolhimento.
 Evite linguagem muito arcaica ou difícil de compreender.
 Quando usar Antigo Testamento, escolha textos mais emocionais e acessíveis (Salmos, Provérbios).
@@ -60,6 +63,8 @@ Evite generalizações.
 A primeira frase da reflexão deve prender completamente a atenção, como uma verdade direta, profunda ou impactante.
 
 Use linguagem natural, como uma conversa íntima, evitando tom excessivamente formal ou religioso.
+
+O campo "practicalApp" deve ser uma aplicação prática objetiva, clara e em português correto — 2 a 4 frases simples e diretas sobre o que a pessoa pode fazer hoje.
 
 IMPORTANTE:
 Mesmo que o sentimento seja exatamente o mesmo de outras vezes, gere um devocional novo, com título, reflexão, aplicação e oração diferentes.
@@ -78,7 +83,7 @@ Retorne exatamente neste formato JSON:
 
   const response = await getOpenAI().chat.completions.create({
   model: "gpt-4.1-mini",
-  temperature: 1.3,
+  temperature: 0.95,
   response_format: {
     type: "json_schema",
     json_schema: {
