@@ -1,6 +1,8 @@
 import { Resend } from "resend"
 
-const resend = new Resend(process.env.RESEND_API_KEY)
+function getResend() {
+  return new Resend(process.env.RESEND_API_KEY)
+}
 
 const FROM = "Semente <ola@semente.app>"
 const BASE_URL = process.env.NEXTAUTH_URL ?? "https://semente.app"
@@ -10,6 +12,7 @@ const BASE_URL = process.env.NEXTAUTH_URL ?? "https://semente.app"
    Link para criar a senha e acessar o dashboard.
 ──────────────────────────────────────────────────────────────── */
 export async function sendWelcomeEmail(email: string) {
+  const resend = getResend()
   const cadastroUrl = `${BASE_URL}/cadastro?email=${encodeURIComponent(email)}&next=${encodeURIComponent("/dashboard?upgraded=true")}`
 
   await resend.emails.send({
@@ -99,6 +102,7 @@ export async function sendWelcomeEmail(email: string) {
    o devocional do dia.
 ──────────────────────────────────────────────────────────────── */
 export async function sendDailyReminderEmail(email: string, name: string) {
+  const resend = getResend()
   const gerarUrl = `${BASE_URL}/gerar`
 
   await resend.emails.send({
