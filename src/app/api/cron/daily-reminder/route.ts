@@ -13,7 +13,7 @@ export async function GET(req: Request) {
 
   // Busca todos os usuários premium com email
   const users = await db.user.findMany({
-    where: { plan: "premium", email: { not: null } },
+    where: { plan: "premium", NOT: { email: null } },
     select: { email: true, name: true },
   })
 
