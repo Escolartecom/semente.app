@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server"
 import { stripe } from "@/lib/stripe"
 import { db } from "@/lib/db"
+import { sendWelcomeEmail } from "@/lib/email"
 import Stripe from "stripe"
 
 // Lê o body bruto — obrigatório para verificar assinatura do Stripe
@@ -28,13 +29,20 @@ export async function POST(req: Request) {
       case "checkout.session.completed": {
         const s = event.data.object as Stripe.Checkout.Session
         if (s.mode === "subscription" && s.customer) {
-          await db.user.updateMany({
+          const updated = await db.user.updateMany({
             where: { stripeCustomerId: s.customer as string },
             data: {
               plan: "premium",
               stripeSubscriptionId: s.subscription as string,
             },
           })
+
+          // Se não encontrou usuário (compra sem conta), dispara email de boas-vindas
+          if (updated.count === 0 && s.customer_email) {
+            await sendWelcomeEmail(s.customer_email).catch(err =>
+              console.error("[webhook] erro ao enviar welcome email:", err)
+            )
+          }
         }
         break
       }

@@ -242,6 +242,34 @@ export default function DashboardPage() {
         </div>
       </div>
 
+      {/* ── Clamor card (para todos os premium por ora) ── */}
+      {session?.user?.plan === "premium" && (
+        <Link href="/clamor" style={{
+          display: "flex",
+          alignItems: "center",
+          gap: 16,
+          background: "linear-gradient(135deg, rgba(180,120,60,0.12) 0%, rgba(180,120,60,0.04) 100%)",
+          border: "1px solid rgba(200,165,90,0.25)",
+          borderRadius: 12,
+          padding: "20px 24px",
+          textDecoration: "none",
+        }}>
+          <div style={{
+            width: 44, height: 44, borderRadius: 8,
+            background: "rgba(200,165,90,0.15)",
+            display: "flex", alignItems: "center", justifyContent: "center",
+            flexShrink: 0,
+          }}>
+            <span style={{ fontSize: 20 }}>🤍</span>
+          </div>
+          <div style={{ flex: 1 }}>
+            <p style={{ fontSize: 13, fontWeight: 600, color: "var(--text)", marginBottom: 2 }}>Clamor</p>
+            <p style={{ fontSize: 12, color: "var(--text-3)" }}>Orações para quando as palavras faltam</p>
+          </div>
+          <ArrowRight size={14} style={{ color: "var(--gold)", flexShrink: 0 }} />
+        </Link>
+      )}
+
       {/* ── Stats ── */}
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
         {[
